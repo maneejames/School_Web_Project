@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital@1&family=Borel&family=Cormorant:wght@300&family=Foldit&family=Indie+Flower&family=Kanit:wght@300&family=Mooli&family=Poppins:wght@300;500&family=Prompt:wght@300;400&family=Roboto&family=Rubik&family=Space+Mono:ital,wght@0,700;1,700&family=Wix+Madefor+Text:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Mooli";
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.sidebar {
+    position: fixed;
+    left: 100%;
+    width: 230px;
+    height: 100%;
+    background-color: #1d1d1d;
+    transition-duration: 0.5s;
+    border-radius: 10px;
+}
+
+.sidebar header {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    line-height: 70px;
+    background-color: #1d1d1d;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.sidebar ul a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: aliceblue;
+    text-align: center;
+    box-sizing: border-box;
+    transition-duration: 0.8s;
+}
+
+ul li a:hover {
+    padding-right: 50px;
+    background-color: white;
+    color: black;
+}
+
+.sidebar li a i {
+    margin-right: 10px;
+}
+
+#check {
+    display: none;
+}
+
+label #btn, label #cancel {
+    position: absolute;
+    cursor: pointer;
+}
+
+label {
+    position: relative;
+    left: 96%;
+}
+
+label #btn {
+    right: 40px;
+    top: 30px;
+    font-size: 35px;
+    color: white;
+    background-color: #1d1d1d;
+    padding: 10px;
+    border-radius: 15px;
+    transition: all 0.5s ease;
+}
+
+label #cancel {
+    z-index: 11;
+    right: -175px;
+    top: 21px;
+    font-size: 20px;
+    color: white;
+    padding: 5px 9px;
+    transition-duration: 0.5s;
+}
+
+#check:checked ~ .sidebar {
+    left: 86%;
+}
+
+#check:checked ~ label #btn {
+    right: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#check:checked ~ label #cancel {
+    right: 110px;
+}
+
+@media (min-width: 2550px) {
+    #check:checked ~ .sidebar {
+        left: 92%;
+    }
+    
+    label #btn {
+        right: 20px;
+    }
+
+    #check:checked ~ label #cancel {
+        right: 60px;
+    }
+}

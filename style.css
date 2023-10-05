@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital@1&family=Borel&family=Cormorant:wght@300&family=Foldit&family=Indie+Flower&family=Kanit:wght@300&family=Mooli&family=Poppins:wght@300;500&family=Prompt:wght@300;400&family=Roboto&family=Rubik&family=Space+Mono:ital,wght@0,700;1,700&family=Wix+Madefor+Text:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Mooli";
+}
+
+body {
+    background-image: url("images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+img {
+    width: 150px;
+    position: relative;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.open {
+    position: relative;
+    top: 20px;
+    text-align: center;
+    font-size: 100px;
+}
+
+.container {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+    border: 2px solid black;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.container .topic {
+    font-size: 50px;
+    text-align: center;
+}
+
+.container .date {
+    font-size: 35px;
+    margin: 20px 0 40px 0;
+    text-align: center;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn a {
+    padding: 30px 50px;
+    font-size: 25px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(253, 58, 58);
+    color: white;
+    text-decoration: none;
+    transition: all 0.5s ease-out;
+}
+
+.btn a:hover {
+    background-color: rgb(249, 193, 96);
+    color: black;
+}
+
+
