@@ -20,6 +20,7 @@ body {
     background-color: #1d1d1d;
     transition-duration: 0.5s;
     border-radius: 10px;
+    z-index: 1;
 }
 
 .sidebar header {
@@ -81,7 +82,7 @@ label #btn {
 }
 
 label #cancel {
-    z-index: 11;
+    z-index: 2;
     right: -175px;
     top: 21px;
     font-size: 20px;
@@ -117,3 +118,54 @@ label #cancel {
         right: 60px;
     }
 }
+
+
+/*================================================================================================================= ABOUT =================================================================================================================*/
+
+.container-logo {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 15px;
+    left: 50px;
+
+}
+
+.container-logo img {
+    width: 65px;
+}
+
+.container-logo h1 {
+    text-align: center;
+    margin-left: 15px;
+    font-size: 25px;
+}
+
+.img-1 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.img-1 img {
+    width: 1250px;
+}
+
+.topic {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.topic h1 {
+    font-size: 60px;
+    background-color: green;
+    padding: 20px 376px;
+    color: white;
+    text-align: center;
+    width: 500px;
+}
+
+/*================================================================================================================= ABOUT =================================================================================================================*/
