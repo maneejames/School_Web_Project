@@ -60,17 +60,17 @@ ul li a:hover {
     display: none;
 }
 
-label #btn, label #cancel {
+.click-menu #btn, .click-menu #cancel {
     position: absolute;
     cursor: pointer;
 }
 
-label {
+.click-menu {
     position: relative;
     left: 96%;
 }
 
-label #btn {
+.click-menu #btn {
     right: 40px;
     top: 30px;
     font-size: 35px;
@@ -81,7 +81,7 @@ label #btn {
     transition: all 0.5s ease;
 }
 
-label #cancel {
+.click-menu #cancel {
     z-index: 2;
     right: -175px;
     top: 21px;
@@ -95,13 +95,13 @@ label #cancel {
     left: 86%;
 }
 
-#check:checked ~ label #btn {
+#check:checked ~ .click-menu #btn {
     right: 50%;
     opacity: 0;
     pointer-events: none;
 }
 
-#check:checked ~ label #cancel {
+#check:checked ~ .click-menu #cancel {
     right: 110px;
 }
 
@@ -110,11 +110,11 @@ label #cancel {
         left: 92%;
     }
     
-    label #btn {
+    .click-menu #btn {
         right: 20px;
     }
 
-    #check:checked ~ label #cancel {
+    #check:checked ~ .click-menu #cancel {
         right: 60px;
     }
 }
@@ -166,6 +166,359 @@ label #cancel {
     color: white;
     text-align: center;
     width: 500px;
+}
+
+.program-vs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 116%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.program-vs .video-vs {
+    margin-right: 50px;
+}
+
+.program-vs .content-vs {
+    width: 600px;
+    margin-left: 50px;
+    margin-bottom: 100px;
+}
+
+.program-vs .content-vs h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.program-vs .content-vs p {
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.goal {
+    position: absolute;
+    top: 160%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.topic-goal h1 {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 1225px;
+    background-color: pink;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+.topic-goal h1 .circle-check {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.topic-goal h1 .chevron-right {
+    margin-left: 1065px;
+}
+
+.list-goal li {  
+    font-size: 18px;
+    margin-right: 30px;
+    line-height: 35px;
+}
+
+.list-goal li .check {
+    margin-right: 10px;
+    margin-left: 30px;
+}
+
+.mission {
+    position: absolute;
+    top: 196%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.topic-mission h1 {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 1225px;
+    background-color: pink;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+.topic-mission h1 .circle-check {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.topic-mission h1 .chevron-right {
+    margin-left: 1030px;
+}
+
+.list-mission li {  
+    font-size: 18px;
+    margin-right: 30px;
+    line-height: 35px;
+}
+
+.list-mission li .check {
+    margin-right: 10px;
+    margin-left: 30px;
+}
+
+.eng-camp {
+    position: absolute;
+    top: 340%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.topic-eng-camp {
+   margin-bottom: 40px;
+}
+
+.topic-eng-camp h1 {
+    width: 1000px;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 40px;
+    background-color: green;
+    padding: 20px 35px;
+    color: white;
+}
+
+.topic-eng-camp h1 span {
+    font-size: 40px;
+}
+
+.topic-eng-camp h2 {
+    font-size: 25px;
+    text-align: center;
+    color: grey;
+    line-height: 35px;
+}
+
+.img-eng-camp img {
+    width: 520px;
+    height: 350px;
+    padding: 5px;
+}
+
+.video-eng-camp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.eco-camp {
+    position: absolute;
+    top: 555%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.topic-eco-camp {
+    margin-bottom: 40px;
+ }
+
+.topic-eco-camp h1 {
+    width: 1000px;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 40px;
+    background-color: green;
+    padding: 20px 35px;
+    color: white;
+}
+
+.topic-eco-camp h2 {
+    font-size: 25px;
+    text-align: center;
+    color: grey;
+    line-height: 35px;
+}
+
+.img-eco-camp img {
+    width: 520px;
+    height: 350px;
+    padding: 5px;
+}
+
+.video-eco-camp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.table-manner {
+    position: absolute;
+    top: 745%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.topic-table-manner {
+    margin-bottom: 40px;
+ }
+
+.topic-table-manner h1 {
+    width: 1000px;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 40px;
+    background-color: green;
+    padding: 20px 35px;
+    color: white;
+}
+
+.topic-table-manner h2 {
+    font-size: 25px;
+    text-align: center;
+    color: grey;
+    line-height: 35px;
+}
+
+.img-table-manner img {
+    width: 520px;
+    height: 350px;
+    padding: 5px;
+}
+
+.video-table-manner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.sci-work {
+    position: absolute;
+    top: 935%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.topic-sci-work {
+    margin-bottom: 40px;
+ }
+
+.topic-sci-work h1 {
+    width: 1000px;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 40px;
+    background-color: green;
+    padding: 20px 35px;
+    color: white;
+}
+
+.topic-sci-work h2 {
+    font-size: 25px;
+    text-align: center;
+    color: grey;
+}
+
+.img-sci-work {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.golf {
+    position: absolute;
+    top: 1095%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.topic-golf {
+    margin-bottom: 40px;
+ }
+
+.topic-golf h1 {
+    width: 1000px;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 40px;
+    background-color: green;
+    padding: 20px 35px;
+    color: white;
+}
+
+.topic-golf h2 {
+    font-size: 25px;
+    text-align: center;
+    color: grey;
+    line-height: 35px;
+}
+
+.img-golf img {
+    width: 520px;
+    height: 350px;
+    padding: 5px;
+}
+
+.trip {
+    position: absolute;
+    top: 1240%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.topic-trip {
+    margin-bottom: 40px;
+ }
+
+.topic-trip h1 {
+    width: 1000px;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 40px;
+    background-color: green;
+    padding: 20px 35px;
+    color: white;
+}
+
+.topic-trip h1 span {
+    font-size: 40px;
+}
+
+.topic-trip h2 {
+    font-size: 25px;
+    text-align: center;
+    color: grey;
+    line-height: 35px;
+}
+
+.img-trip img {
+    width: 520px;
+    height: 350px;
+    padding: 5px;
+}
+
+.video-trip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+}
+
+.video-trip a {
+    font-size: 30px;
+    background-color: pink;
+    padding: 20px 40px;
+    color: black;
+}
+
+.video-trip a:hover {
+    background-color: rgb(253, 93, 120);
+    color: white;
 }
 
 /*================================================================================================================= ABOUT =================================================================================================================*/
