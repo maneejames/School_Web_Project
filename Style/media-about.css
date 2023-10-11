@@ -281,7 +281,177 @@
 }
 
 @media (max-width: 675px) {
+    .container-logo {
+        top: 30px;
+    }
+    .container-logo img {
+        width: 55px;
+    }
+    .container-logo h1 {
+        font-size: 20px;
+    }
+    .img-1 {
+        top: 25%;
+    }
     .img-1 img {
-        width: 550px;
+        width: 450px;
+    }
+    .topic {
+        top: 45%;
+    }
+    .topic h1 {
+        padding: 20px 120px;
+    }
+    .program-vs {
+        top: 95%;
+    }
+    .program-vs .video-vs {
+        margin-left: 80px;
+        width: 460px;
+        height: 265px;
+    }
+    .program-vs .content-vs h1 {
+        font-size: 42px;
+    }
+    .program-vs .content-vs p {
+        font-size: 18px;
+    }
+    .topic-goal h1, .topic-mission h1 {
+        width: 440px;
+    }
+    .mission {
+        top: 225%;
+    }
+    .topic-goal h1 .chevron-right {
+        margin-left: 280px;
+    }
+    .topic-mission h1 .chevron-right {
+        margin-left: 250px;
+    }
+    .list-goal, .list-mission {
+        font-size: 17px;
+    }
+    .eng-camp {
+        top: 445%;
+    }
+    .topic-eng-camp {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .topic-eng-camp h1 {
+        width: 400px;
+        font-size: 30px;
+    }
+    .topic-eng-camp h1 span {
+        font-size: 20px;
+    }
+    .topic-eng-camp h2 {
+        font-size: 18px;
+    }
+    .img-eng-camp img {
+        width: 520px;
+        height: 350px;
+    }
+    .eco-camp {
+        top: 770%;
+    }
+    .topic-eco-camp {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .topic-eco-camp h1 {
+        width: 400px;
+        font-size: 30px;
+    }
+    .topic-eco-camp h2 {
+        font-size: 18px;
+    }
+    .img-eco-camp img {
+        width: 520px;
+        height: 350px;
+    }
+    .table-manner {
+        top: 1055%;
+    }
+    .topic-table-manner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .topic-table-manner h1 {
+        width: 400px;
+        font-size: 30px;
+    }
+    .topic-table-manner h2 {
+        font-size: 18px;
+    }
+    .img-table-manner img {
+        width: 520px;
+        height: 350px;
+    }
+    .sci-work {
+        top: 1275%;
+    }
+    .topic-sci-work {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .topic-sci-work h1 {
+        width: 400px;
+        font-size: 30px;
+    }
+    .topic-sci-work h2 {
+        font-size: 18px;
+    }
+    .img-sci-work img {
+        width: 568px;
+        height: 886px;
+    }
+    .golf {
+        top: 1440%;
+    }
+    .topic-golf {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .topic-golf h1 {
+        width: 400px;
+        font-size: 30px;
+    }
+    .topic-golf h2 {
+        font-size: 18px;
+    }
+    .img-golf img {
+        width: 520px;
+        height: 350px;
+    }
+    .trip {
+        top: 1655%;
+    }
+    .topic-trip {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .topic-trip h1 {
+        width: 400px;
+        font-size: 30px;
+    }
+    .topic-trip h1 span {
+        font-size: 20px;
+    }
+    .img-trip img {
+        width: 520px;
+        height: 350px;
     }
 }

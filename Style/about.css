@@ -60,7 +60,7 @@ ul li a:hover {
     display: none;
 }
 
-.click-menu #btn, .click-menu #cancel {
+.click-menu #btn, .click-cancel #cancel {
     position: absolute;
     cursor: pointer;
 }
@@ -81,9 +81,9 @@ ul li a:hover {
     transition: all 0.5s ease;
 }
 
-.click-menu #cancel {
+.click-cancel #cancel {
     z-index: 2;
-    right: -175px;
+    right: 175px;
     top: 21px;
     font-size: 20px;
     color: white;
@@ -101,10 +101,6 @@ ul li a:hover {
     pointer-events: none;
 }
 
-#check:checked ~ .click-menu #cancel {
-    right: 110px;
-}
-
 @media (min-width: 2550px) {
     #check:checked ~ .sidebar {
         left: 92%;
@@ -112,10 +108,6 @@ ul li a:hover {
     
     .click-menu #btn {
         right: 20px;
-    }
-
-    #check:checked ~ .click-menu #cancel {
-        right: 60px;
     }
 }
 
