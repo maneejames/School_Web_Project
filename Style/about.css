@@ -28,7 +28,8 @@ body {
     font-weight: bold;
     color: white;
     text-align: center;
-    line-height: 70px;
+    height: 40px;
+    margin-bottom: 30px;
     background-color: #1d1d1d;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
@@ -82,13 +83,12 @@ ul li a:hover {
 }
 
 .click-cancel #cancel {
-    z-index: 2;
-    right: 175px;
-    top: 21px;
+    position: sticky;
+    top: 31px;
     font-size: 20px;
     color: white;
     padding: 5px 9px;
-    transition-duration: 0.5s;
+    margin-left: 20px;
 }
 
 #check:checked ~ .sidebar {

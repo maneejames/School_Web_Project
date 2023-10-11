@@ -455,3 +455,29 @@
         height: 350px;
     }
 }
+
+@media (max-width: 525px) {
+    body {
+        width: 600px;
+    }
+    #check:checked ~ .sidebar {
+        left: 69%;
+    }
+    
+    .click-menu #btn {
+    }
+    .img-1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .program-vs .video-vs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .program-vs .video-vs iframe{
+        width: 430px;
+        height: 265px;
+    }
+}
