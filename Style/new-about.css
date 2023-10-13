@@ -1,0 +1,483 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital@1&family=Borel&family=Cormorant:wght@300&family=Foldit&family=Indie+Flower&family=Kanit:wght@300&family=Mooli&family=Poppins:wght@300;500&family=Prompt:wght@300;400&family=Roboto&family=Rubik&family=Space+Mono:ital,wght@0,700;1,700&family=Wix+Madefor+Text:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Mooli";
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    width: fit-content;
+}
+
+/*========================================================== NAVBAR =========================================================*/
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+}
+
+.navbar header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar header img {
+    width: 80px;
+}
+
+.navbar header h1 {
+    margin-left: 20px;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar ul li {
+    margin-right: 35px;
+}
+
+.navbar ul li a {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    transition: 0.5s;
+}
+
+.navbar ul li a:hover {
+    color: green;
+}
+
+.navbar .btn {
+    margin-right: 30px;
+    padding: 20px 30px;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.navbar .btn:hover {
+    background-color: pink;
+    color: black;
+}
+
+/*========================================================== NAVBAR =========================================================*/
+
+/*========================================================== PROFILE =========================================================*/
+
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    padding: 1em;
+}
+
+.profile img {
+    width: 1050px;
+}
+
+/*========================================================== PROFILE =========================================================*/
+
+/*========================================================== ABOUT =========================================================*/
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    padding: 1em;
+}
+
+.topic-about {
+    font-size: 40px;
+    background-color: orange;
+    text-align: center;
+    width: 1050px;
+}
+
+.topic-about h1 {
+    padding: 20px 0;
+    font-size: 65px;
+}
+
+.program-vs {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.program-vs .video-vs {
+    margin: 0 50px;
+}
+
+.program-vs .content-vs {
+    margin: 0 50px;
+}
+
+.program-vs .content-vs h1 {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.program-vs .content-vs p {
+    font-size: 25px;
+}
+
+.goal , .mission{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.goal .topic-goal , .mission .topic-mission {
+    background-color: pink;
+    width: 1050px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.goal .topic-goal h1 , .mission .topic-mission h1 {
+    font-size: 27px;
+    padding: 20px;
+}
+
+.goal .topic-goal h1 i , .mission .topic-mission h1 i {
+    margin-right: 20px;
+}
+
+.goal ul li , .mission ul li {
+    font-size: 20px;
+    line-height: 35px;
+}
+
+.mission {
+    margin-top: 40px;
+}
+
+.goal ul li i , .mission ul li i{
+    margin-right: 10px;
+}
+/*========================================================== ABOUT =========================================================*/
+
+/*========================================================== ENG-CAMP =========================================================*/
+.eng-camp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    padding: 1em;
+}
+
+.topic-eng-camp {
+    font-size: 40px;
+    background-color: orange;
+    text-align: center;
+    width: 1050px;
+}
+
+.topic-eng-camp h1 {
+    padding: 20px 0;
+    font-size: 55px;
+}
+
+.topic-eng-camp h2 {
+    padding: 20px 0;
+    font-size: 45px;
+}
+
+.detail-eng-camp {
+    margin-top: 30px;
+}
+
+.detail-eng-camp p {
+    font-size: 30px;
+    text-align: center;
+}
+
+.img-eng-camp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.img-eng-camp img {
+    width: 800px;
+    height: 600px;
+    padding: 10px;
+}
+
+.video-eng-camp {
+    margin-top: 30px;
+}
+/*========================================================== ENG-CAMP =========================================================*/
+
+/*========================================================== ECO-CAMP =========================================================*/
+.eco-camp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    padding: 1em;
+}
+
+.topic-eco-camp {
+    font-size: 40px;
+    background-color: orange;
+    text-align: center;
+    width: 1050px;
+}
+
+.topic-eco-camp h1 {
+    padding: 20px 0;
+    font-size: 55px;
+}
+
+.detail-eco-camp {
+    margin-top: 30px;
+}
+
+.detail-eco-camp p {
+    font-size: 30px;
+    text-align: center;
+}
+
+.img-eco-camp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.img-eco-camp img {
+    width: 800px;
+    height: 600px;
+    padding: 10px;
+}
+
+.video-eco-camp {
+    margin-top: 30px;
+}
+/*========================================================== ECO-CAMP =========================================================*/
+
+/*========================================================== TABLE-MANNER =========================================================*/
+.table-manner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    padding: 1em;
+}
+
+.topic-table-manner {
+    font-size: 40px;
+    background-color: orange;
+    text-align: center;
+    width: 1050px;
+}
+
+.topic-table-manner h1 {
+    padding: 20px 0;
+    font-size: 55px;
+}
+
+.detail-table-manner {
+    margin-top: 30px;
+}
+
+.detail-table-manner p {
+    font-size: 30px;
+    text-align: center;
+}
+
+.img-table-manner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.img-table-manner img {
+    width: 800px;
+    height: 600px;
+    padding: 10px;
+}
+.video-table-manner {
+    margin-top: 30px;
+}
+/*========================================================== TABLE-MANNER =========================================================*/
+
+/*========================================================== SCI-WORK =========================================================*/
+.sci-work {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    padding: 1em;
+}
+
+.topic-sci-work {
+    font-size: 40px;
+    background-color: orange;
+    text-align: center;
+    width: 1050px;
+}
+
+.topic-sci-work h1 {
+    padding: 20px 0;
+    font-size: 55px;
+}
+
+.detail-sci-work {
+    margin-top: 30px;
+}
+
+.detail-sci-work p {
+    font-size: 30px;
+    text-align: center;
+}
+
+.img-sci-work {
+    margin-top: 30px;
+}
+
+.img-sci-work img {
+    width: 800px;
+    height: 1200px;
+    padding: 10px;
+}
+/*========================================================== SCI-WORK =========================================================*/
+
+/*========================================================== GOLF =========================================================*/
+
+.golf {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    padding: 1em;
+}
+
+.topic-golf {
+    font-size: 40px;
+    background-color: orange;
+    text-align: center;
+    width: 1050px;
+}
+
+.topic-golf h1 {
+    padding: 20px 0;
+    font-size: 55px;
+}
+
+.detail-golf {
+    margin-top: 30px;
+}
+
+.detail-golf p {
+    font-size: 30px;
+    text-align: center;
+}
+
+.img-golf {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.img-golf img {
+    width: 800px;
+    height: 600px;
+    padding: 10px;
+}
+/*========================================================== GOLF =========================================================*/
+
+/*========================================================== TRIP =========================================================*/
+
+.trip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    padding: 1em;
+}
+
+.topic-trip {
+    font-size: 40px;
+    background-color: orange;
+    text-align: center;
+    width: 1050px;
+}
+
+.topic-trip h1 {
+    padding: 20px 0;
+    font-size: 55px;
+}
+
+.topic-trip h2 {
+    padding: 20px 0;
+    font-size: 45px;
+}
+
+.img-trip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.img-trip img {
+    width: 800px;
+    height: 600px;
+    padding: 10px;
+}
+
+.video-trip {
+    margin: 50px 0;
+}
+
+.video-trip a {
+    font-size: 30px;
+    background-color: pink;
+    padding: 20px 40px;
+    color: black;
+    transition: 0.5s;
+}
+
+.video-trip a:hover {
+    background-color: rgb(253, 93, 120);
+    color: white;
+}
+/*========================================================== TRIP =========================================================*/
