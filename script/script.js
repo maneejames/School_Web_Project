@@ -1,11 +1,12 @@
-const wrapper1 = document.querySelector(".wrapper-1"),
-        selectGoal = wrapper1.querySelector(".select-goal");
+const toggleBtn = document.querySelector(".toggle-btn")
+const toggleBtnIcon = document.querySelector(".toggle-btn i")
+const sideBarMenu = document.querySelector(".sidebar-menu")
 
-const wrapper2 = document.querySelector(".wrapper-2"),
-        selectMission = wrapper2.querySelector(".select-mission");
+toggleBtn.onclick = function () {
+        sideBarMenu.classList.toggle("open")
+        const isOpen = sideBarMenu.classList.contains("open")
 
-selectGoal.addEventListener("click" , () => wrapper1.classList.toggle("active"));
-selectMission.addEventListener("click" , () => wrapper2.classList.toggle("active"));
-
-selectMission.addEventListener("click" , () => wrapper1.classList.toggle("inactive"));
-selectGoal.addEventListener("click" , () => wrapper2.classList.toggle("inactive"));
+        toggleBtnIcon.classList = isOpen
+        ? "fa-solid fa-x"
+        : "fa-solid fa-bars"
+}

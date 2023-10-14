@@ -10,7 +10,6 @@
 }
 
 body {
-    width: fit-content;
 }
 
 /*========================================================== NAVBAR =========================================================*/
@@ -57,8 +56,7 @@ body {
     color: green;
 }
 
-.navbar .btn {
-    margin-right: 30px;
+.navbar .btn , .sidebar-menu .btn{
     padding: 20px 30px;
     font-size: 20px;
     border-radius: 20px;
@@ -68,12 +66,59 @@ body {
     transition: 0.5s;
 }
 
-.navbar .btn:hover {
+.navbar .btn:hover , .sidebar-menu .btn:hover {
     background-color: pink;
     color: black;
 }
 
 /*========================================================== NAVBAR =========================================================*/
+
+/*========================================================== SIDEBAR =========================================================*/
+.navbar .toggle-btn {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+.sidebar-menu {
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 80px;
+    height: 0;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.247);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sidebar-menu.open {
+    height: 400px;
+}
+
+.sidebar-menu ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.sidebar-menu ul li a {
+    color: white;
+}
+
+.sidebar-menu ul li a:hover {
+    color: green;
+}
+
+.sidebar-menu .btn {
+    width: 100%;
+    text-align: center;
+}
+/*========================================================== SIDEBAR =========================================================*/
 
 /*========================================================== PROFILE =========================================================*/
 

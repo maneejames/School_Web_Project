@@ -23,10 +23,40 @@
             <li><a href="#"><i class="fa-solid fa-stamp"></i> Stamp</a></li>
             <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login in</a></li>
             <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
+            <li><a class="btn" href="sign-up.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign up</a></li>
         </ul>
-        <a class="btn" href="sign-up.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign up</a>
+        <div class="toggle-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
     </nav>
     <!--================================================== NAVBAR ==================================================-->
+
+    <!--================================================== SIDEBAR ==================================================-->
+    <div class="sidebar-menu">
+        <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="new-about.html"><i class="fa-solid fa-circle-question"></i> About</a></li>
+            <li><a href="#"><i class="fa-solid fa-stamp"></i> Stamp</a></li>
+            <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login in</a></li>
+            <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
+            <li><a class="btn" href="sign-up.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign up</a></li>
+        </ul>
+    </div>
+    <script>
+        const toggleBtn = document.querySelector(".toggle-btn")
+        const toggleBtnIcon = document.querySelector(".toggle-btn i")
+        const sideBarMenu = document.querySelector(".sidebar-menu")
+
+        toggleBtn.onclick = function () {
+            sideBarMenu.classList.toggle("open")
+            const isOpen = sideBarMenu.classList.contains("open")
+
+            toggleBtnIcon.classList = isOpen
+            ? "fa-solid fa-x"
+            : "fa-solid fa-bars"
+        }
+    </script>
+    <!--================================================== SIDEBAR ==================================================-->
 
     <!--================================================== PROFILE ==================================================-->
     <section class="profile">
