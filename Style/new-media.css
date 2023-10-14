@@ -99,9 +99,6 @@
     .goal .topic-goal , .mission .topic-mission {
         width: 650px;
     }
-    .goal ul li , .mission ul li {
-        font-size: 15px;
-    }
     .topic-eng-camp, .topic-eco-camp, .topic-table-manner, .topic-sci-work, .topic-golf, .topic-trip {
         width: 650px;
         font-size: 50px;
@@ -128,9 +125,9 @@
 @media screen and (max-width : 655px) {
     .sidebar-menu {
         left: 2rem;
-        width: 520px;
+        width: 610px;
     }
-    .profile img {
+    /*.profile img {
         width: 450px;
     }
     .topic-about {
@@ -138,9 +135,6 @@
     }
     .goal .topic-goal , .mission .topic-mission {
         width: 450px;
-    }
-    .goal ul li , .mission ul li {
-        font-size: 12px;
     }
     .topic-eng-camp, .topic-eco-camp, .topic-table-manner, .topic-sci-work, .topic-golf, .topic-trip {
         width: 450px;
@@ -168,10 +162,10 @@
     .video-eng-camp iframe , .video-eco-camp iframe , .video-table-manner iframe {
         width: 460px;
         height: 265px;
-    }
+    }*/
 }
 
-@media screen and (max-width : 570px) {
+/*@media screen and (max-width : 570px) {
     .topic-about h1 {
         font-size: 50px;
     }
@@ -183,4 +177,4 @@
         width: 500px;
         height: 800px;
     }
-}
+}*/
