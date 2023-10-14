@@ -128,7 +128,7 @@
 @media screen and (max-width : 655px) {
     .sidebar-menu {
         left: 2rem;
-        width: unset;
+        width: 520px;
     }
     .profile img {
         width: 450px;
