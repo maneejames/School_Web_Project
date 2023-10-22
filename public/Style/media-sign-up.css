@@ -1,0 +1,117 @@
+@media screen and (max-width : 1240px) {
+    .navbar header img {
+        width: 70px;
+    }
+    .navbar header h1 {
+        font-size: 20px;
+    }
+    .navbar ul li a {
+        font-size: 18px;
+    }
+    .navbar .btn {
+        font-size: 18px;
+        padding: 17px 27px;
+    }
+}
+
+@media screen and (max-width : 1130px) {
+    .navbar header img {
+        width: 60px;
+    }
+    .navbar header h1 {
+        font-size: 17px;
+    }
+    .navbar ul li .link {
+        font-size: 15px;
+    }
+    .navbar .btn {
+        font-size: 15px;
+        padding: 14px 24px;
+    }
+}
+
+@media screen and (max-width : 960px) {
+    .navbar header img {
+        width: 50px;
+    }
+    .navbar header h1 {
+        font-size: 15px;
+    }
+    .navbar ul li .link {
+        font-size: 13px;
+    }
+    .navbar .btn {
+        font-size: 13px;
+        padding: 12px 22px;
+    }
+}
+
+
+@media screen and (max-width : 875px) {
+    .navbar header img {
+        width: 60px;
+    }
+    .navbar header h1 {
+        font-size: 18px;
+    }
+    .navbar ul {
+        display: none;
+    }
+    .navbar ul li a {
+        display: none;
+    }
+    .navbar .toggle-btn{
+        display: block;
+    }
+    .dropdown-menu {
+        display: block;
+    }
+}
+
+@media screen and (max-width : 655px) {
+    .dropdown-menu {
+        left: 2rem;
+        width: unset;
+    }
+    .sign-up {
+        padding: 125px 25px 175px;
+    }
+    .sign-up h1 {
+        font-size: 50px;
+    }
+    .sign-up a {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width : 508px) {
+    .sign-up {
+        padding: 100px 25px 150px;
+    }
+    .sign-up h1 {
+        font-size: 40px;
+    }
+    .sign-up a {
+        font-size: 19px;
+        padding: 20px 40px;
+    }
+}
+
+@media screen and (max-width : 413px) {
+    .navbar header img {
+        width: 50px;
+    }
+    .navbar header h1 {
+        font-size: 15px;
+    }
+    .sign-up {
+        padding: 85px 18px 135px;
+    }
+    .sign-up h1 {
+        font-size: 35px;
+    }
+    .sign-up a {
+        font-size: 18px;
+        padding: 20px 30px;
+    }
+}

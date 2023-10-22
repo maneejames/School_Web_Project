@@ -9,10 +9,6 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: rgb(0, 53, 4)
-}
-
 /*========================================================== NAVBAR =========================================================*/
 
 .navbar {
@@ -20,7 +16,6 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1em;
-    background-color: rgba(35, 100, 15, 0.411);
 }
 
 .navbar header {
@@ -35,7 +30,6 @@ body {
 
 .navbar header h1 {
     margin-left: 20px;
-    color: white;
 }
 
 .navbar ul {
@@ -48,41 +42,30 @@ body {
     margin-right: 35px;
 }
 
-.navbar ul li .link {
+.navbar ul li a {
     font-size: 20px;
     font-weight: bold;
-    color: white;
-    position: relative;
-}
-
-.navbar ul li .link::before {
-    content: "";
-    position: absolute;
-    top: 30px;
-    left: 0;
-    width: 0;
-    height: 5px;
-    background-color: white;
+    color: black;
     transition: 0.5s;
 }
 
-.navbar ul li .link:hover::before {
-    width: 100%;
+.navbar ul li a:hover {
+    color: green;
 }
 
-.navbar .btn , .dropdown-menu .btn{
+.navbar .btn , .sidebar-menu .btn{
     padding: 20px 30px;
     font-size: 20px;
     border-radius: 20px;
-    background-color: orange;
+    background-color: green;
     color: white;
     font-weight: bold;
     transition: 0.5s;
 }
 
-.navbar .btn:hover , .dropdown-menu .btn:hover {
-    background-color: rgb(207, 135, 0);
-    color: white;
+.navbar .btn:hover , .sidebar-menu .btn:hover {
+    background-color: pink;
+    color: black;
 }
 
 /*========================================================== NAVBAR =========================================================*/
@@ -93,7 +76,6 @@ body {
     font-size: 30px;
     cursor: pointer;
     margin-right: 30px;
-    color: white;
 }
 
 .dropdown-menu {
@@ -121,24 +103,12 @@ body {
     padding: 20px;
 }
 
-.dropdown-menu ul li .link {
+.dropdown-menu ul li a {
     color: white;
-    position: relative;
 }
 
-.dropdown-menu ul li .link::before {
-    content: "";
-    position: absolute;
-    top: 30px;
-    left: 0;
-    width: 0;
-    height: 5px;
-    background-color: white;
-    transition: 0.5s;
-}
-
-.dropdown-menu ul li .link:hover::before {
-    width: 100%;
+.dropdown-menu ul li a:hover {
+    color: green;
 }
 
 .dropdown-menu .btn {
@@ -147,46 +117,38 @@ body {
 }
 /*========================================================== DROPDOWN =========================================================*/
 
-/*========================================================== LOGIN ==========================================================*/
+/*========================================================== STAMP =========================================================*/
+
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1em;
-    height: 600px;
+    padding: 1rem;
+    margin-top: 50px;
 }
 
-.login {
-    padding: 150px 50px 200px;
-    border-radius: 50px;
-    background-color: rgba(35, 100, 15, 0.411);
+.stamp {
+    display: flex;
+    background-color: rgb(172, 172, 172);
+    height: 400px;
+    width: 700px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    padding: 20px;
+    border-radius: 20px;
 }
 
-.login h1 {
-    text-align: center;
-    margin-bottom: 50px;
-    font-size: 60px;
-    color: white;
-}
-
-.login a {
-    font-size: 27px;
-    background-color: rgb(233, 0, 0);
-    padding: 20px 60px;
-    border-radius: 5px;
-    color: white;
+.stamp div {
+    width: 115px;
+    height: 115px;
+    background-color: rgb(196, 241, 255);
+    border: 5px solid rgb(65, 65, 65);
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-weight: bold;
+    margin: 10px;
 }
-
-.login a i {
-    margin-right: 20px;
-    background-color: white;
-    color: rgb(233, 0, 0);
-    padding: 8px;
-    border-radius: 100px;
-}
-
-.login a:hover {
-    background-color: rgb(179, 0, 0);
-}
-/*========================================================== LOGIN ==========================================================*/
+/*========================================================== STAMP =========================================================*/

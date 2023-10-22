@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EP-MWS Openhouse 2023</title>
+    <link rel="stylesheet" href="Style/form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!--================================================== HEADER ==================================================-->
+    <header>
+        <a href="new-about.html"><i class="fa-solid fa-arrow-left"></i> Back</a>
+    </header>
+    <!--================================================== HEADER ==================================================-->
+
+    <!--================================================== FORM ==================================================-->
+    <section class="form">
+        <div class="container">
+            <div class="topic">
+                <h1>Sign up</h1>
+            </div>
+            <div class="content">
+                <form action="">
+                    <div class="name">
+                        <div class="prefix">
+                            <label for="prefix">Prefix :</label>
+                            <select name="prefix" id="prefix">
+                                <option disabled selected value="-"></option>
+                                <option value="master">Master</option>
+                                <option value="miss">Miss</option>
+                                <option value="Mr.">Mr.</option>
+                                <option value="Mrs.">Mrs.</option>
+                            </select>
+                        </div>
+                        <div class="fname">
+                            <label for="first-name">First name :</label>
+                            <input type="text" id="first-name">
+                        </div>
+                        <div class="lname">
+                            <label for="last-name">Last name :</label>
+                            <input type="text" id="last-name">
+                        </div>
+                    </div>
+                    <div class="user">
+                        <label for="student teacher parent general-public">User type :</label>
+                        <div class="choice">
+                            <input type="radio" id="student" name="choice">
+                            <label for="student">Student</label>
+                            <input type="radio" id="teacher" name="choice">
+                            <label for="teacher">Teacher</label>
+                            <input type="radio" id="parent" name="choice">
+                            <label for="parent">Parent</label>
+                            <input type="radio" id="general-public" name="choice">
+                            <label for="general-public">General Public</label>
+                        </div>
+                        <script>
+                            const rdStudent = document.getElementById("student");
+                            const rdTeacher = document.getElementById("teacher");
+                            const rdParent = document.getElementById("parent");
+                            const rdGeneralPublic = document.getElementById("general-public");
+                            
+                            rdStudent.onclick = function () {
+                                document.querySelector(".student").style.display="block";
+                                document.querySelector(".teacher").style.display="none";
+                            }
+
+                            rdTeacher.onclick = function () {
+                                document.querySelector(".student").style.display="none";
+                                document.querySelector(".teacher").style.display="block";
+                            }
+
+                            rdParent.onclick = function () {
+                                document.querySelector(".student").style.display="none";
+                                document.querySelector(".teacher").style.display="none";
+                            }
+
+                            rdGeneralPublic.onclick = function () {
+                                document.querySelector(".student").style.display="none";
+                                document.querySelector(".teacher").style.display="none";
+                            }
+                        </script>
+                    </div>
+                    <div class="student">
+                        <div class="education">
+                            <label for="education">Education level :</label>
+                            <select name="education" id="education">
+                                <option disabled selected value="-"></option>
+                                <option value="grade-1-3">Grade 1-3</option>
+                                <option value="grade-4-6">Grade 4-6</option>
+                                <option value="grade-7-9">Grade 7-9</option>
+                                <option value="grade-10-12">Grade 10-12</option>
+                            </select>
+                        </div>
+                        <div class="school">
+                            <label for="school">School name :</label>
+                            <input type="text" id="school">
+                        </div>
+                        <div class="province">
+                            <label for="province">School provincial :</label>
+                            <input type="text" id="province">
+                        </div>
+                    </div>
+                    <div class="teacher">
+                        <div class="school">
+                            <label for="school">School name :</label>
+                            <input type="text" id="school">
+                        </div>
+                        <div class="province">
+                            <label for="province">School provincial :</label>
+                            <input type="text" id="province">
+                        </div>
+                    </div>
+                    <button type="submit">Sign up</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!--================================================== FORM ==================================================-->
+</body>
+
+</html>
