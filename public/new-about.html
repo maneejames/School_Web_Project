@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EP-MWS Openhouse 2023</title>
     <link rel="stylesheet" href="Style/new-about.css">
     <link rel="stylesheet" href="Style/new-media.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -18,11 +18,10 @@
             <h1>ENGLISH PROGRAM</h1>
         </header>
         <ul>
-            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-            <li><a href="new-about.html"><i class="fa-solid fa-circle-question"></i> About</a></li>
-            <li><a href="#"><i class="fa-solid fa-stamp"></i> Stamp</a></li>
-            <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login in</a></li>
-            <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
+            <li><a class="link" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a class="link" href="new-about.html"><i class="fa-solid fa-circle-question"></i> About</a></li>
+            <li><a class="link" href="#"><i class="fa-solid fa-stamp"></i> Stamp</a></li>
+            <li><a class="link" href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login in</a></li>
             <li><a class="btn" href="sign-up.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign up</a></li>
         </ul>
         <div class="toggle-btn">
@@ -31,32 +30,31 @@
     </nav>
     <!--================================================== NAVBAR ==================================================-->
 
-    <!--================================================== SIDEBAR ==================================================-->
-    <div class="sidebar-menu">
+    <!--================================================== DROPDOWN ==================================================-->
+    <div class="dropdown-menu">
         <ul>
-            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-            <li><a href="new-about.html"><i class="fa-solid fa-circle-question"></i> About</a></li>
-            <li><a href="#"><i class="fa-solid fa-stamp"></i> Stamp</a></li>
-            <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login in</a></li>
-            <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
+            <li><a class="link" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a class="link" href="new-about.html"><i class="fa-solid fa-circle-question"></i> About</a></li>
+            <li><a class="link" href="#"><i class="fa-solid fa-stamp"></i> Stamp</a></li>
+            <li><a class="link" href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login in</a></li>
             <li><a class="btn" href="sign-up.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign up</a></li>
         </ul>
     </div>
     <script>
-        const toggleBtn = document.querySelector(".toggle-btn")
-        const toggleBtnIcon = document.querySelector(".toggle-btn i")
-        const sideBarMenu = document.querySelector(".sidebar-menu")
+        const toggleBtn = document.querySelector(".toggle-btn");
+        const toggleBtnIcon = document.querySelector(".toggle-btn i");
+        const dropDownMenu = document.querySelector(".dropdown-menu");
 
         toggleBtn.onclick = function () {
-            sideBarMenu.classList.toggle("open")
-            const isOpen = sideBarMenu.classList.contains("open")
+            dropDownMenu.classList.toggle("open");
+            const isOpen = dropDownMenu.classList.contains("open");
 
             toggleBtnIcon.classList = isOpen
             ? "fa-solid fa-x"
             : "fa-solid fa-bars"
         }
     </script>
-    <!--================================================== SIDEBAR ==================================================-->
+    <!--================================================== DROPDOWN ==================================================-->
 
     <!--================================================== PROFILE ==================================================-->
     <section class="profile">

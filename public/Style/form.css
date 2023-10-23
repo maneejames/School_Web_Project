@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital@1&family=Borel&family=Cormorant:wght@300&family=Foldit&family=Indie+Flower&family=Kanit:wght@300&family=Mooli&family=Poppins:wght@300;500&family=Prompt:wght@300;400&family=Roboto&family=Rubik&family=Space+Mono:ital,wght@0,700;1,700&family=Wix+Madefor+Text:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Mooli";
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(0, 53, 4)
+}
+
+/*========================================================== HEADER =========================================================*/
+
+header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    margin-bottom: 60px;
+    margin-top: 10px;
+
+}
+
+header a {
+    background-color: rgba(35, 100, 15, 0.411);
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px;
+    color: white;
+}
+
+header a i {
+    margin: 0 10px 0 20px;
+}
+
+/*========================================================== HEADER =========================================================*/
+
+/*========================================================== FORM =========================================================*/
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 1em;
+}
+
+.container {
+    width: 500px;
+    padding: 20px;
+    background-color: rgba(35, 100, 15, 0.411);
+    border-radius: 10px;
+}
+
+.topic {
+    margin-bottom: 30px;
+}
+
+.topic h1 {
+    font-size: 50px;
+    color: white;
+}
+
+.prefix label , .fname label , .lname label , .user label , .education label , .school label , .province label{
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.prefix select , .fname input , .lname input , .education select , .school input , .province input {
+    margin: 15px 0;
+    padding: 5px;
+    width: 100%;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    text-transform: capitalize;
+}
+
+.choice {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 15px 0;
+}
+
+.choice label {
+    font-size: 15px;
+}
+
+.choice input {
+    width: 20px;
+}
+
+.student {
+    display: none;
+}
+
+.teacher {
+    display: none;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 15px;
+}
+
+button:hover {
+    background-color: rgb(207, 135, 0);
+}
+
+/*========================================================== FORM =========================================================*/

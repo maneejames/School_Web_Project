@@ -5,7 +5,7 @@
     .navbar header h1 {
         font-size: 20px;
     }
-    .navbar ul li a {
+    .navbar ul li .link {
         font-size: 18px;
     }
     .navbar .btn {
@@ -21,7 +21,7 @@
     .navbar header h1 {
         font-size: 17px;
     }
-    .navbar ul li a {
+    .navbar ul li .link {
         font-size: 15px;
     }
     .navbar .btn {
@@ -58,7 +58,7 @@
     .navbar header h1 {
         font-size: 15px;
     }
-    .navbar ul li a {
+    .navbar ul li .link {
         font-size: 13px;
     }
     .navbar .btn {
@@ -71,13 +71,13 @@
     .navbar ul {
         display: none;
     }
-    .navbar ul li a {
+    .navbar ul li .link {
         display: none;
     }
     .navbar .toggle-btn{
         display: block;
     }
-    .sidebar-menu {
+    .dropdown-menu {
         display: block;
     }
     .profile img {
@@ -123,9 +123,9 @@
 }
 
 @media screen and (max-width : 655px) {
-    .sidebar-menu {
+    .dropdown-menu {
         left: 2rem;
-        width: 610px;
+        width: 650px;
     }
     /*.profile img {
         width: 450px;

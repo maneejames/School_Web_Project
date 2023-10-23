@@ -6,146 +6,179 @@
     font-family: "Mooli";
     list-style: none;
     text-decoration: none;
+    box-sizing: border-box;
 }
 
 body {
-    overflow-x: hidden;
+    background-color: rgb(0, 53, 4)
 }
 
-.sidebar {
-    position: fixed;
-    left: 100%;
-    width: 230px;
-    height: 100%;
-    background-color: #1d1d1d;
-    transition-duration: 0.5s;
-    border-radius: 10px;
+/*========================================================== NAVBAR =========================================================*/
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: rgba(35, 100, 15, 0.411);
 }
 
-.sidebar header {
-    font-size: 25px;
+.navbar header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar header img {
+    width: 80px;
+}
+
+.navbar header h1 {
+    margin-left: 20px;
+    color: white;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar ul li {
+    margin-right: 35px;
+}
+
+.navbar ul li .link {
+    font-size: 20px;
     font-weight: bold;
     color: white;
-    text-align: center;
-    line-height: 70px;
-    background-color: #1d1d1d;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-}
-
-.sidebar ul a {
-    display: block;
-    height: 100%;
-    width: 100%;
-    line-height: 65px;
-    font-size: 20px;
-    color: aliceblue;
-    text-align: center;
-    box-sizing: border-box;
-    transition-duration: 0.8s;
-}
-
-ul li a:hover {
-    padding-right: 50px;
-    background-color: white;
-    color: black;
-}
-
-.sidebar li a i {
-    margin-right: 10px;
-}
-
-#check {
-    display: none;
-}
-
-label #btn, label #cancel {
-    position: absolute;
-    cursor: pointer;
-}
-
-label {
     position: relative;
-    left: 96%;
 }
 
-label #btn {
-    right: 40px;
+.navbar ul li .link::before {
+    content: "";
+    position: absolute;
     top: 30px;
-    font-size: 35px;
-    color: white;
-    background-color: #1d1d1d;
-    padding: 10px;
-    border-radius: 15px;
-    transition: all 0.5s ease;
+    left: 0;
+    width: 0;
+    height: 5px;
+    background-color: white;
+    transition: 0.5s;
 }
 
-label #cancel {
-    z-index: 11;
-    right: -175px;
-    top: 21px;
+.navbar ul li .link:hover::before {
+    width: 100%;
+}
+
+.navbar .btn , .dropdown-menu .btn{
+    padding: 20px 30px;
     font-size: 20px;
+    border-radius: 20px;
+    background-color: orange;
     color: white;
-    padding: 5px 9px;
-    transition-duration: 0.5s;
+    font-weight: bold;
+    transition: 0.5s;
 }
 
-#check:checked ~ .sidebar {
-    left: 86%;
+.navbar .btn:hover , .dropdown-menu .btn:hover {
+    background-color: rgb(207, 135, 0);
+    color: white;
 }
 
-#check:checked ~ label #btn {
-    right: 50%;
-    opacity: 0;
-    pointer-events: none;
+/*========================================================== NAVBAR =========================================================*/
+
+/*========================================================== DROPDOWN =========================================================*/
+.navbar .toggle-btn {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 30px;
+    color: white;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 80px;
+    height: 0;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.247);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-#check:checked ~ label #cancel {
-    right: 110px;
+.dropdown-menu.open {
+    height: 400px;
 }
 
-@media (min-width: 2550px) {
-    #check:checked ~ .sidebar {
-        left: 92%;
-    }
-    
-    label #btn {
-        right: 20px;
-    }
-
-    #check:checked ~ label #cancel {
-        right: 60px;
-    }
+.dropdown-menu ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-/*********************************************************************************** SIGN UP ***********************************************************************************/
+.dropdown-menu ul li .link {
+    color: white;
+    position: relative;
+}
+
+.dropdown-menu ul li .link::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 0;
+    height: 5px;
+    background-color: white;
+    transition: 0.5s;
+}
+
+.dropdown-menu ul li .link:hover::before {
+    width: 100%;
+}
+
+.dropdown-menu .btn {
+    width: 100%;
+    text-align: center;
+}
+/*========================================================== DROPDOWN =========================================================*/
+
+/*========================================================== SIGN-UP ==========================================================*/
 
 .container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    height: 600px;
 }
 
-.container h1 {
+.sign-up {
+    padding: 150px 50px 200px;
+    border-radius: 50px;
+    background-color: rgba(35, 100, 15, 0.411);
+}
+
+.sign-up h1 {
     text-align: center;
-    position: relative;
-    bottom: 120px;
+    margin-bottom: 50px;
     font-size: 60px;
+    color: white;
 }
 
-.container h2 {
+.sign-up a {
     font-size: 27px;
     background-color: rgb(233, 0, 0);
     padding: 20px 60px;
     border-radius: 5px;
-}
-
-.container a {
     color: white;
+    font-weight: bold;
 }
 
-.container h2 a i {
+.sign-up a i {
     margin-right: 20px;
     background-color: white;
     color: rgb(233, 0, 0);
@@ -153,8 +186,8 @@ label #cancel {
     border-radius: 100px;
 }
 
-.container h2:hover {
+.container a:hover {
     background-color: rgb(179, 0, 0);
 }
 
-/*********************************************************************************** SIGN UP ***********************************************************************************/
+/*========================================================== SIGN-UP ==========================================================*/

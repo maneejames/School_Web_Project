@@ -5,30 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EP-MWS Openhouse 2023</title>
     <link rel="stylesheet" href="Style/sign-up.css">
+    <link rel="stylesheet" href="Style/media-sign-up.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <input type="checkbox" id="check">
-    <label for="check">
-        <i class="fa-solid fa-bars" id="btn"></i>
-        <i class="fa-solid fa-x" id="cancel"></i>
-    </label>
-    <div class="sidebar">
-        <header>Menu</header>
+    <!--================================================== NAVBAR ==================================================-->
+    <nav class="navbar">
+        <header>
+            <img src="images/logo-watsing.png"> 
+            <h1>ENGLISH PROGRAM</h1>
+        </header>
         <ul>
-            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-            <li><a href="new-about.html"><i class="fa-solid fa-circle-question"></i> About</a></li>
-            <li><a href="#"><i class="fa-solid fa-stamp"></i> Stamp</a></li>
-            <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login in</a></li>
-            <li><a href="sign-up.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign up</a></li>
-            <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
+            <li><a class="link" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a class="link" href="new-about.html"><i class="fa-solid fa-circle-question"></i> About</a></li>
+            <li><a class="link" href="#"><i class="fa-solid fa-stamp"></i> Stamp</a></li>
+            <li><a class="link" href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login in</a></li>
+            <li><a class="btn" href="sign-up.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign up</a></li>
+        </ul>
+        <div class="toggle-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+    <!--================================================== NAVBAR ==================================================-->
+
+    <!--================================================== DROPDOWN ==================================================-->
+    <div class="dropdown-menu">
+        <ul>
+            <li><a class="link" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a class="link" href="new-about.html"><i class="fa-solid fa-circle-question"></i> About</a></li>
+            <li><a class="link" href="#"><i class="fa-solid fa-stamp"></i> Stamp</a></li>
+            <li><a class="link" href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login in</a></li>
+            <li><a class="btn" href="sign-up.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign up</a></li>
         </ul>
     </div>
+    <script>
+        const toggleBtn = document.querySelector(".toggle-btn")
+        const toggleBtnIcon = document.querySelector(".toggle-btn i")
+        const dropDownMenu = document.querySelector(".dropdown-menu")
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle("open")
+            const isOpen = dropDownMenu.classList.contains("open")
+
+            toggleBtnIcon.classList = isOpen
+            ? "fa-solid fa-x"
+            : "fa-solid fa-bars"
+        }
+    </script>
+    <!--================================================== DROPDOWN ==================================================-->
+
+     <!--================================================== SIGN-UP ==================================================-->
     <div class="container">
-        <h1>Sign up</h1>
-        <h2><a href="#"><i class="fa-brands fa-google"></i> Sign up with google</a></h2>
+        <div class="sign-up">
+            <h1>Sign up</h1>
+            <a href="#"><i class="fa-brands fa-google"></i> Sign up with google</a>
+        </div>
     </div>
+     <!--================================================== SIGN-UP ==================================================-->
 </body>
 </html>
