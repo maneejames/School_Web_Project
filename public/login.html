@@ -1,68 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EP-MWS Openhouse 2023</title>
-    <link rel="stylesheet" href="Style/login.css">
-    <link rel="stylesheet" href="Style/media-login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-    <!--================================================== NAVBAR ==================================================-->
-    <nav class="navbar">
-        <header>
-            <img src="images/logo-watsing.png"> 
-            <h1>ENGLISH PROGRAM</h1>
-        </header>
-        <ul>
-            <li><a class="link" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-            <li><a class="link" href="new-about.html"><i class="fa-solid fa-circle-question"></i> About</a></li>
-            <li><a class="link" href="#"><i class="fa-solid fa-stamp"></i> Stamp</a></li>
-            <li><a class="link" href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login in</a></li>
-            <li><a class="btn" href="sign-up.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign up</a></li>
-        </ul>
-        <div class="toggle-btn">
-            <i class="fa-solid fa-bars"></i>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EP-MWS Openhouse 2023</title>
+        <link rel="stylesheet" href="Style/login.css">
+        <link rel="stylesheet" href="Style/media-login.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <!--================================================== NAVBAR ==================================================-->
+        <nav class="navbar">
+            <header>
+                <img src="images/logo-watsing.png"> 
+                <h1>ENGLISH PROGRAM</h1>
+            </header>
+            <ul>
+                <li><a class="link" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a class="link" href="new-about.html"><i class="fa-solid fa-circle-question"></i> About</a></li>
+                <li><a class="link" href="#"><i class="fa-solid fa-stamp"></i> Stamp</a></li>
+                <li><a class="link" href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login in</a></li>
+                <li><a class="btn" href="sign-up.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign up</a></li>
+            </ul>
+            <div class="toggle-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </nav>
+        <!--================================================== NAVBAR ==================================================-->
+
+        <!--================================================== DROPDOWN ==================================================-->
+        <div class="dropdown-menu">
+            <ul>
+                <li><a class="link" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a class="link" href="new-about.html"><i class="fa-solid fa-circle-question"></i> About</a></li>
+                <li><a class="link" href="#"><i class="fa-solid fa-stamp"></i> Stamp</a></li>
+                <li><a class="link" href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login in</a></li>
+                <li><a class="btn" href="sign-up.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign up</a></li>
+            </ul>
         </div>
-    </nav>
-    <!--================================================== NAVBAR ==================================================-->
+        <script>
+            const toggleBtn = document.querySelector(".toggle-btn")
+            const toggleBtnIcon = document.querySelector(".toggle-btn i")
+            const dropDownMenu = document.querySelector(".dropdown-menu")
 
-    <!--================================================== DROPDOWN ==================================================-->
-    <div class="dropdown-menu">
-        <ul>
-            <li><a class="link" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-            <li><a class="link" href="new-about.html"><i class="fa-solid fa-circle-question"></i> About</a></li>
-            <li><a class="link" href="#"><i class="fa-solid fa-stamp"></i> Stamp</a></li>
-            <li><a class="link" href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login in</a></li>
-            <li><a class="btn" href="sign-up.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign up</a></li>
-        </ul>
-    </div>
-    <script>
-        const toggleBtn = document.querySelector(".toggle-btn")
-        const toggleBtnIcon = document.querySelector(".toggle-btn i")
-        const dropDownMenu = document.querySelector(".dropdown-menu")
+            toggleBtn.onclick = function () {
+                dropDownMenu.classList.toggle("open")
+                const isOpen = dropDownMenu.classList.contains("open")
 
-        toggleBtn.onclick = function () {
-            dropDownMenu.classList.toggle("open")
-            const isOpen = dropDownMenu.classList.contains("open")
+                toggleBtnIcon.classList = isOpen
+                ? "fa-solid fa-x"
+                : "fa-solid fa-bars"
+            }
+        </script>
+        <!--================================================== DROPDOWN ==================================================-->
 
-            toggleBtnIcon.classList = isOpen
-            ? "fa-solid fa-x"
-            : "fa-solid fa-bars"
-        }
+        <!--================================================================ LOGIN ================================================================-->
+        <div class="container">
+            <div class="login">
+                <h1>Login</h1>
+                <a href="#" id="googleLogin"><i class="fa-brands fa-google"></i> Login with google</a>
+            </div>
+        </div>
+        <!--================================================================ LOGIN ================================================================-->
+    </body>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+        apiKey: "AIzaSyAIwzxvlLd9UTZXC_qc3fqZ9Qarifhjzcs",
+        authDomain: "school-openhouse.firebaseapp.com",
+        projectId: "school-openhouse",
+        storageBucket: "school-openhouse.appspot.com",
+        messagingSenderId: "321971868041",
+        appId: "1:321971868041:web:66ddb25a464ab8ea11d158"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider(app);
+
+        googleLogin.addEventListener('click',(e) => {
+            signInWithRedirect(auth, provider);
+
+            getRedirectResult(auth)
+            .then((result) => {
+                // This gives you a Google Access Token. You can use it to access Google APIs.
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+
+                // The signed-in user info.
+                const user = result.user;
+                // IdP data available using getAdditionalUserInfo(result)
+                // ...
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.customData.email;
+                // The AuthCredential type that was used.
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                // ...
+            });
+        })
     </script>
-    <!--================================================== DROPDOWN ==================================================-->
 
-    <!--================================================================ LOGIN ================================================================-->
-    <div class="container">
-        <div class="login">
-            <h1>Login</h1>
-            <a href="#"><i class="fa-brands fa-google"></i> Login with google</a>
-        </div>
-    </div>
-    <!--================================================================ LOGIN ================================================================-->
-</body>
 </html>
