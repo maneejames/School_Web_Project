@@ -189,17 +189,17 @@ body {
 
 .program-vs {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     margin-top: 40px;
 }
 
 .program-vs .video-vs {
-    margin: 0 50px;
+    margin: 0 65px;
 }
 
 .program-vs .content-vs {
-    margin: 0 50px;
+    margin: 0 65px;
     background-color: rgba(35, 100, 15, 0.411);
     padding: 30px;
     border: 8px solid rgba(35, 100, 15, 0.705);
