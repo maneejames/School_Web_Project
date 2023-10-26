@@ -132,7 +132,7 @@
                     .then(async (response) => {
                         const userid = response.user.uid;
                         setTimeout(() => {
-                            navigate(`/Homepage`);
+                            navigate(`public\new-about.html`);
                         }, 3000);
                         try {
                             await setDoc(doc(db, "users", userid), {
