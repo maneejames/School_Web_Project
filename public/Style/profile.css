@@ -10,7 +10,7 @@
 }
 
 body {
-    background-color: rgb(0, 53, 4);
+    background-color: rgb(0, 53, 4)
 }
 
 /*========================================================== NAVBAR =========================================================*/
@@ -74,7 +74,7 @@ body {
     padding: 20px 30px;
     font-size: 20px;
     border-radius: 20px;
-    background-color: #ffa500;
+    background-color: orange;
     color: white;
     font-weight: bold;
     transition: 0.5s;
@@ -103,6 +103,7 @@ body {
     margin-right: 30px;
     color: white;
 }
+
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -154,35 +155,41 @@ body {
 }
 /*========================================================== DROPDOWN =========================================================*/
 
-/*========================================================== STAMP =========================================================*/
+/*========================================================== PROFILE =========================================================*/
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
-.stamp {
-    display: flex;
-    background-color: #6F8B71;
-    height: 450px;
-    width: 800px;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-content: center;
-    padding: 20px;
+.img-user {
+    width: 250px;
+    height: 350px;
+    background-color: rgba(35, 100, 15, 0.411);
     border-radius: 20px;
-}
-
-.stamp div {
-    width: 200px;
-    height: 200px;
-    background-color: #D7DDD7;
-    border-radius: 50%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-right: 50px;
 }
-/*========================================================== STAMP =========================================================*/
+
+.img-user .image {
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    margin-top: 30px;
+    border: 2px solid black;
+    background-color: white;
+}
+
+.user-info {
+    margin-left: 50px;
+    background-color: rgba(35, 100, 15, 0.411);
+    width: 700px;
+    padding: 20px;
+}
+
+
+
+/*========================================================== PROFILE =========================================================*/
