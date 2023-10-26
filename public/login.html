@@ -77,7 +77,7 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
-        import { doc,  setDoc, collection, addDoc, getFirestore, getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
+        import {getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
         
         // Your web app's Firebase configuration
         const firebaseConfig = {
@@ -93,9 +93,6 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider(app);
-        
-        // Initialize Cloud Firestore and get a reference to the service
-        const db = getFirestore(app);
 
         googleLogin.addEventListener('click',(e) => {
             signInWithRedirect(auth, provider);
@@ -121,37 +118,6 @@
                 // ...
             });
         })
-
-        const [fullName, setFullName] = useState<string>("");
-        const [email, setEmail] = useState<string>("");
-        const [password, setPassword] = useState<string>("");
-        const [dateOfBirth, setDateOfBirth] = useState<string>("")
-        const [userName, setUsername] = useState<string>("");
-
-
-        const handlesubmit = () => {
-                createUserWithEmailAndPassword(auth, email, password)
-                    .then(async (response) => {
-                        const userid = response.user.uid;
-                        setTimeout(() => {
-                            navigate(`public\new-about.html`);
-                        }, 3000);
-                        try {
-                            await setDoc(doc(db, "users", userid), {
-                                fullName: fullName,
-                                username: userName,
-                                email: email,
-                                dateOfBirth: dateOfBirth,
-                            });
-                        } catch (e) {
-                            console.error("Error adding document: ", e);
-                        }
-                    })
-                    .catch((error) => {
-                        console.log(error)
-                        }
-                    );
-        };
     </script>
 
 </html>
