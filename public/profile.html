@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EP-MWS Openhouse 2023</title>
     <link rel="stylesheet" href="Style/profile.css">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="Style/media-profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <!--================================================== NAVBAR ==================================================-->
     <nav class="navbar">
         <header>
-            <img src="images/logo-watsing.png"> 
+            <img src="images/logo-watsing.png">
             <h1>ENGLISH PROGRAM</h1>
         </header>
         <ul>
@@ -50,34 +52,48 @@
             const isOpen = dropDownMenu.classList.contains("open");
 
             toggleBtnIcon.classList = isOpen
-            ? "fa-solid fa-x"
-            : "fa-solid fa-bars"
+                ? "fa-solid fa-x"
+                : "fa-solid fa-bars"
         }
     </script>
     <!--================================================== DROPDOWN ==================================================-->
 
     <!--================================================== PROFILE ==================================================-->
     <div class="container">
-        <div class="img-user">
+
+        <section class="img-user">
             <div class="image"></div>
-        </div>
-        <div class="user-info">
-            <div class="topic">
-                <h1>My Profile</h1>
+        </section>
+
+        <section class="user-info">
+            <div class="container-user-info">
+                <div class="topic">
+                    <h1>My Profile</h1>
+                </div>
+                <div class="info">
+                    <div class="prefix">
+                        <label for="prefix">Prefix :</label>
+                        <input type="text" id="prefix">
+                    </div>
+                    <div class="fname">
+                        <label for="fname">First name :</label>
+                        <input type="text" id="fname">
+                    </div>
+                    <div class="lname">
+                        <label for="lname">Last name :</label>
+                        <input type="text" id="fname">
+                    </div>
+                    <div class="user-type">
+                        <label for="user-type">User type :</label>
+                        <input type="text" id="user-type">
+                    </div>
+                </div>
             </div>
-            <div class="info">
-                <label for="prefix">Prefix :</label>
-                <input type="text" id="prefix">
-                <label for="fname">First name :</label>
-                <input type="text" id="fname">
-                <label for="lname">Last name :</label>
-                <input type="text" id="fname">
-                <label for="age">Age :</label>
-                <input type="text" id="age">
-            </div>
-        </div>
+            <button class="btn-edit">Edit</button>
+        </section>
     </div>
     <!--================================================== PROFILE ==================================================-->
 
 </body>
+
 </html>

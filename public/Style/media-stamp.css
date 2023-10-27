@@ -1,0 +1,116 @@
+@media screen and (max-width : 1240px) {
+    .navbar header img {
+        width: 70px;
+    }
+    .navbar header h1 {
+        font-size: 20px;
+    }
+    .navbar ul li a {
+        font-size: 18px;
+    }
+    .navbar .btn {
+        font-size: 18px;
+        padding: 17px 27px;
+    }
+}
+
+@media screen and (max-width : 1130px) {
+    .navbar header img {
+        width: 60px;
+    }
+    .navbar header h1 {
+        font-size: 17px;
+    }
+    .navbar ul li .link {
+        font-size: 15px;
+    }
+    .navbar .btn {
+        font-size: 15px;
+        padding: 14px 24px;
+    }
+}
+
+@media screen and (max-width : 960px) {
+    .navbar header img {
+        width: 50px;
+    }
+    .navbar header h1 {
+        font-size: 15px;
+    }
+    .navbar ul li .link {
+        font-size: 13px;
+    }
+    .navbar .btn {
+        font-size: 13px;
+        padding: 12px 22px;
+    }
+    .stamp {
+        width: 700px;
+        height: 425px;
+    }
+    .stamp div {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+
+@media screen and (max-width : 875px) {
+    .navbar header img {
+        width: 60px;
+    }
+    .navbar header h1 {
+        font-size: 18px;
+    }
+    .navbar ul {
+        display: none;
+    }
+    .navbar ul li a {
+        display: none;
+    }
+    .navbar .toggle-btn{
+        display: block;
+    }
+    .dropdown-menu {
+        display: block;
+    }
+}
+
+@media screen and (max-width : 655px) {
+    .dropdown-menu {
+        left: 2rem;
+        width: unset;
+    }
+    .stamp {
+        width: 600px;
+        height: 400px;
+    }
+    .stamp div {
+        width: 125px;
+        height: 125px;
+    }
+}
+
+@media screen and (max-width : 490px) {
+    .stamp {
+        width: 500px;
+        height: 375px;
+    }
+    .stamp div {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media screen and (max-width : 396px) {
+    .navbar header img {
+        width: 50px;
+    }
+    .navbar header h1 {
+        font-size: 15px;
+    }
+    .stamp div {
+        width: 75px;
+        height: 75px;
+    }
+}
