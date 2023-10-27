@@ -172,6 +172,7 @@ body {
     display: flex;
     justify-content: center;
     margin-right: 50px;
+    margin-bottom: 100px;
 }
 
 .img-user .image {
