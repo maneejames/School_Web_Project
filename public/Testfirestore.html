@@ -52,21 +52,21 @@
             } catch (error) {
                 alert('User registration failed. ' + error.message);
             }
-        });
+            });
 
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
 
-            try {
-                await signInWithEmailAndPassword(auth, email, password);
-                alert('User login successful');
+                try {
+                    await signInWithEmailAndPassword(auth, email, password);
+                    alert('User login successful');
 
-                // Redirect to another page after successful login
-                window.location.href = 'login-already.html';
-            } catch (error) {
-                alert('User login failed. ' + error.message);
+                    // Redirect to another page after successful login
+                    window.location.href = 'login-already.html';
+                } catch (error) {
+                    alert('User login failed. ' + error.message);
                 }
             });
         </script>
