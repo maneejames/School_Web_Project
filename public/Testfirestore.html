@@ -1,81 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
 
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+        <script type="module">
+            import { initializeApp } from "firebase/app";
+            import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+            import { getDatabase, ref, set } from "firebase/firestore";
 
-    <script>
-        const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_AUTH_DOMAIN",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_STORAGE_BUCKET",
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-            appId: "YOUR_APP_ID"
-        };
+            const firebaseConfig = {
+                apiKey: "AIzaSyAIwzxvlLd9UTZXC_qc3fqZ9Qarifhjzcs",
+                authDomain: "school-openhouse.firebaseapp.com",
+                projectId: "school-openhouse",
+                storageBucket: "school-openhouse.appspot.com",
+                messagingSenderId: "321971868041",
+                appId: "1:321971868041:web:66ddb25a464ab8ea11d158"
+            };
 
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+            const database = getDatabase(app);
 
-        const signupForm = document.getElementById('signup-form');
-        const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            const loginForm = document.getElementById('login-form');
 
-        signupForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('signup-email').value;
-            const password = document.getElementById('signup-password').value;
+            signupForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('signup-email').value;
+                const password = document.getElementById('signup-password').value;
 
-            try {
-                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                const user = userCredential.user;
+                try {
+                    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                    const user = userCredential.user;
 
-                // Store user data in Firebase Realtime Database
-                const userData = {
-                    email: user.email,
-                    // Add other user data as needed
-                };
-                const database = getDatabase(app);
-                const userRef = ref(database, 'users/' + user.uid);
-                await set(userRef, userData);
+                    // Store user data in Firebase Realtime Database
+                    const userData = {
+                        email: user.email,
+                        // Add other user data as needed
+                    };
+                    const userRef = ref(database, 'users/' + user.uid);
+                    await set(userRef, userData);
 
-                alert('User registration successful');
-            } catch (error) {
-                alert('User registration failed. ' + error.message);
-            }
-        });
+                    alert('User registration successful');
+                } catch (error) {
+                    alert('User registration failed. ' + error.message);
+                }
+            });
 
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
 
-            try {
-                await signInWithEmailAndPassword(auth, email, password);
-                alert('User login successful');
-            } catch (error) {
-                alert('User login failed. ' + error.message);
-            }
-        });
-    </script>
-</head>
-<body>
-    <h2>Sign Up</h2>
-    <form id="signup-form">
-        <input type="email" id="signup-email" placeholder="Email" required>
-        <input type="password" id="signup-password" placeholder="Password" required>
-        <button type="submit">Sign Up</button>
-    </form>
+                try {
+                    await signInWithEmailAndPassword(auth, email, password);
+                    alert('User login successful');
+                } catch (error) {
+                    alert('User login failed. ' + error.message);
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <!-- Your HTML content here -->
 
-    <h2>Login</h2>
-    <form id="login-form">
-        <input type="email" id="login-email" placeholder="Email" required>
-        <input type="password" id="login-password" placeholder="Password" required>
-        <button type="submit">Login</button>
-    </form>
-</body>
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+            <input type="email" id="signup-email" placeholder="Email" required>
+            <input type="password" id="signup-password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="email" id="login-email" placeholder="Email" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </body>
+    </html>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
 </html>
