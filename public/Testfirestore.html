@@ -27,38 +27,44 @@
             const loginForm = document.getElementById('login-form');
 
             signupForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const email = document.getElementById('signup-email').value;
-                const password = document.getElementById('signup-password').value;
+            e.preventDefault();
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
 
-                try {
-                    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                    const user = userCredential.user;
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
 
-                    // Store user data in Firebase Realtime Database
-                    const userData = {
-                        email: user.email,
-                        // Add other user data as needed
-                    };
-                    const userRef = ref(database, 'users/' + user.uid);
-                    await set(userRef, userData);
+                // Store user data in Firebase Realtime Database
+                const userData = {
+                    email: user.email,
+                    // Add other user data as needed
+                };
+                const userRef = ref(database, 'users/' + user.uid);
+                await set(userRef, userData);
 
-                    alert('User registration successful');
-                } catch (error) {
-                    alert('User registration failed. ' + error.message);
-                }
-            });
+                alert('User registration successful');
 
-            loginForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const email = document.getElementById('login-email').value;
-                const password = document.getElementById('login-password').value;
+                // Redirect to another page after successful sign-up
+                window.location.href = "login-already.html";
+            } catch (error) {
+                alert('User registration failed. ' + error.message);
+            }
+        });
 
-                try {
-                    await signInWithEmailAndPassword(auth, email, password);
-                    alert('User login successful');
-                } catch (error) {
-                    alert('User login failed. ' + error.message);
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                alert('User login successful');
+
+                // Redirect to another page after successful login
+                window.location.href = "login-already.html";
+            } catch (error) {
+                alert('User login failed. ' + error.message);
                 }
             });
         </script>
