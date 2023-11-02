@@ -33,7 +33,7 @@
             const classroom = document.getElementById('classroom').value;
 
             try {
-                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password, classroom);
                 const user = userCredential.user;
 
                 // Store user data in Firebase Realtime Database
