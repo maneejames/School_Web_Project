@@ -39,7 +39,7 @@
                 // Store user data in Firebase Realtime Database
                 const userData = {
                     email: user.email,
-                    classroom: user.classroom
+                    classroom: classroom,
                     // Add other user data as needed
                 };
                 const userRef = ref(database, 'users/' + user.uid);
@@ -78,7 +78,7 @@
         <form id="signup-form">
             <input type="email" id="signup-email" placeholder="Email" required>
             <input type="password" id="signup-password" placeholder="Password" required>
-            <input id="classroom" placeholder="Password" required>
+            <input type="text" id="classroom" placeholder="Classroom" required>
             <button type="submit">Sign Up</button>
         </form>
 
