@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-    <head lang="en">
+<html lang="en">
+    <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
@@ -8,50 +8,49 @@
         <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
             import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
-            import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
+            import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
 
             const firebaseConfig = {
-                apiKey: "AIzaSyAIwzxvlLd9UTZXC_qc3fqZ9Qarifhjzcs",
-                authDomain: "school-openhouse.firebaseapp.com",
-                projectId: "school-openhouse",
-                storageBucket: "school-openhouse.appspot.com",
-                messagingSenderId: "321971868041",
-                appId: "1:321971868041:web:66ddb25a464ab8ea11d158"
+                    apiKey: "AIzaSyAIwzxvlLd9UTZXC_qc3fqZ9Qarifhjzcs",
+                    authDomain: "school-openhouse.firebaseapp.com",
+                    projectId: "school-openhouse",
+                    storageBucket: "school-openhouse.appspot.com",
+                    messagingSenderId: "321971868041",
+                    appId: "1:321971868041:web:66ddb25a464ab8ea11d158"
             };
 
             const app = initializeApp(firebaseConfig);
             const auth = getAuth(app);
-            const database = getDatabase(app);
+            const firestore = getFirestore(app);
 
             const signupForm = document.getElementById('signup-form');
             const loginForm = document.getElementById('login-form');
 
             signupForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('signup-email').value;
-            const password = document.getElementById('signup-password').value;
-            const classroom = document.getElementById('classroom').value;
+                e.preventDefault();
+                const email = document.getElementById('signup-email').value;
+                const password = document.getElementById('signup-password').value;
+                const classroom = document.getElementById('classroom').value; // Add classroom input field
 
-            try {
-                const userCredential = await createUserWithEmailAndPassword(auth, email, password, classroom);
-                const user = userCredential.user;
+                try {
+                    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                    const user = userCredential.user;
 
-                // Store user data in Firebase Realtime Database
-                const userData = {
-                    email: user.email,
-                    classroom: classroom,
-                    // Add other user data as needed
-                };
-                const userRef = ref(database, 'users/' + user.uid);
-                await set(userRef, userData);
+                    // Store user data in Firestore
+                    const usersCollection = collection(firestore, 'users');
+                    await addDoc(usersCollection, {
+                        email: user.email,
+                        classroom: classroom, // Store classroom data
+                        // Add other user data as needed
+                    });
 
-                alert('User registration successful');
+                    alert('User registration successful');
 
-                // Redirect to another page after successful sign-up
-                window.location.href = 'login-already.html';
-            } catch (error) {
-                alert('User registration failed. ' + error.message);
-            }
+                    // Redirect to another page after successful sign-up
+                    window.location.href = 'login-already.html';
+                } catch (error) {
+                    alert('User registration failed. ' + error.message);
+                }
             });
 
             loginForm.addEventListener('submit', async (e) => {
@@ -71,6 +70,7 @@
             });
         </script>
     </head>
+    
     <body>
         <!-- Your HTML content here -->
 
@@ -78,7 +78,7 @@
         <form id="signup-form">
             <input type="email" id="signup-email" placeholder="Email" required>
             <input type="password" id="signup-password" placeholder="Password" required>
-            <input type="text" id="classroom" placeholder="Classroom" required>
+            <input type="text" id="classroom" placeholder="Classroom" required> <!-- Add classroom input field -->
             <button type="submit">Sign Up</button>
         </form>
 
@@ -89,16 +89,5 @@
             <button type="submit">Login</button>
         </form>
     </body>
-    </html>
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        
-    </body>
 </html>
+
