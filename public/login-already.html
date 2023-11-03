@@ -9,52 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-        <script type="module">
-            import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
-            import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
-            import { getFirestore, doc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
-    
-            const firebaseConfig = {
-                apiKey: "YOUR_API_KEY",
-                authDomain: "YOUR_AUTH_DOMAIN",
-                projectId: "YOUR_PROJECT_ID",
-                storageBucket: "YOUR_STORAGE_BUCKET",
-                messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-                appId: "YOUR_APP_ID"
-            };
-    
-            const app = initializeApp(firebaseConfig);
-            const auth = getAuth(app);
-            const firestore = getFirestore(app);
-    
-            const code1 = "123"; // Replace with your code
-            const code2 = "456"; // Replace with your code
-            const code3 = "789"; // Replace with your code
-    
-            const stampButton = document.getElementById('stamp-button');
-            stampButton.addEventListener('click', async () => {
-                const codeInput = prompt('Enter a code:');
-                if (codeInput === code1 || codeInput === code2 || codeInput === code3) {
-                    // Valid code, set the stamp to true for the current user
-                    const user = auth.currentUser;
-                    if (user) {
-                        // Update the Firestore document to set the stamp to true
-                        const userDoc = doc(firestore, 'users', user.uid);
-                        await updateDoc(userDoc, {
-                            stamps: {
-                                [codeInput]: true
-                            }
-                        });
-                        alert('Stamp set to true!');
-                    } else {
-                        alert('User not logged in.');
-                    }
-                } else {
-                    alert('Invalid code.');
-                }
-            });
-        </script>
 </head>
 <body>
     <!--================================================== NAVBAR ==================================================-->
@@ -114,7 +68,6 @@
     <section class="about">
         <div class="topic-about">
             <h1>About us</h1>
-            <button id="stamp-button">Set Stamp to True</button>
         </div>
         <div class="program-vs">
             <div class="video-vs">
