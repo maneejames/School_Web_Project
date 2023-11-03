@@ -31,6 +31,7 @@
                 const email = document.getElementById('signup-email').value;
                 const password = document.getElementById('signup-password').value;
                 const classroom = document.getElementById('classroom').value; // Add classroom input field
+                const stampType = document.getElementById('stamp-type').value;
 
                 try {
                     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -41,7 +42,15 @@
                     await addDoc(usersCollection, {
                         email: user.email,
                         classroom: classroom, // Store classroom data
+                        stampType: stampType,
                         // Add other user data as needed
+                    });
+
+                    const userDoc = doc(firestore, 'users', userDocRef.id);
+                    await updateDoc(userDoc, {
+                        stamp1: false,
+                        stamp2: false,
+                        stamp3: false
                     });
 
                     alert('User registration successful');
@@ -70,7 +79,7 @@
             });
         </script>
     </head>
-    
+
     <body>
         <!-- Your HTML content here -->
 
@@ -79,6 +88,11 @@
             <input type="email" id="signup-email" placeholder="Email" required>
             <input type="password" id="signup-password" placeholder="Password" required>
             <input type="text" id="classroom" placeholder="Classroom" required> <!-- Add classroom input field -->
+            <select id="stamp-type" required>
+                <option value="stamp1">Stamp Type 1</option>
+                <option value="stamp2">Stamp Type 2</option>
+                <option value="stamp3">Stamp Type 3</option>
+            </select>
             <button type="submit">Sign Up</button>
         </form>
 
