@@ -12,7 +12,7 @@
         
         <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-            import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+            import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, browserSessionPersistence, setPersistence } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
             import { getFirestore, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
     
             const firebaseConfig = {
@@ -73,7 +73,7 @@
             .catch((error) => {
                 console.error('Error enabling persistence:', error);
             });
-            
+
         </script>
 </head>
 <body>
