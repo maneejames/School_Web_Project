@@ -7,7 +7,7 @@
 
         <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-            import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, browserSessionPersistence, setPersistence} from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+            import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, browserLocalPersistence, setPersistence} from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
             import { getFirestore, collection, addDoc, updateDoc, doc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
 
             const firebaseConfig = {
@@ -120,7 +120,7 @@
             //     console.error('Error enabling persistence:', error);
             // });
 
-            setPersistence(auth, browserSessionPersistence)
+            setPersistence(auth, browserLocalPersistence)
             .then(() => {
                 // Existing and future Auth states are now persisted in the current
                 // session only. Closing the window would clear any existing state even
