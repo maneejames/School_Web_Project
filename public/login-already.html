@@ -12,7 +12,7 @@
         
         <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-            import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, browserLocalPersistence, setPersistence } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+            import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, inMemoryPersistence, setPersistence } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
             import { getFirestore, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
     
             const firebaseConfig = {
@@ -55,7 +55,7 @@
                 }
             });
 
-            setPersistence(auth, browserLocalPersistence)
+            setPersistence(auth, inMemoryPersistence)
             .then(() => {
                 // Initialize the app or continue with your application logic
 
