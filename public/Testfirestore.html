@@ -101,23 +101,38 @@
                 }
             });
 
-            setPersistence(auth, inMemoryPersistence)
-            .then(() => {
-                // Initialize the app or continue with your application logic
+            // setPersistence(auth, inMemoryPersistence)
+            // .then(() => {
+            //     // Initialize the app or continue with your application logic
 
-                // Check user authentication state on page load
-                onAuthStateChanged(auth, (user) => {
-                    if (user) {
-                        // User is signed in
-                        console.log('User is signed in:', user.email);
-                    } else {
-                        // User is signed out
-                        console.log('User is signed out');
-                    }
-                });
+            //     // Check user authentication state on page load
+            //     onAuthStateChanged(auth, (user) => {
+            //         if (user) {
+            //             // User is signed in
+            //             console.log('User is signed in:', user.email);
+            //         } else {
+            //             // User is signed out
+            //             console.log('User is signed out');
+            //         }
+            //     });
+            // })
+            // .catch((error) => {
+            //     console.error('Error enabling persistence:', error);
+            // });
+
+            setPersistence(auth, browserSessionPersistence)
+            .then(() => {
+                // Existing and future Auth states are now persisted in the current
+                // session only. Closing the window would clear any existing state even
+                // if a user forgets to sign out.
+                // ...
+                // New sign-in will be persisted with session persistence.
+                return signInWithEmailAndPassword(auth, email, password);
             })
             .catch((error) => {
-                console.error('Error enabling persistence:', error);
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
             });
         </script>
     </head>
