@@ -55,41 +55,32 @@
             //     }
             // });
 
-            const stampButton = document.getElementById('stamp-button');
-            stampButton.addEventListener('click', async () => {
-                const codeInput = prompt('Enter a code:');
-                if (codeInput === code1 || codeInput === code2 || codeInput === code3) {
-                    // Valid code, set the stamp to true for the current user
-                    const user = auth.currentUser;
-                    if (user) {
-                        const userDoc = doc(firestore, 'users', user.uid);
+            async function updateUserWithCode(codeInput) {
+            const user = auth.currentUser;
 
-                        // Get the user's current data
-                        const userDocSnap = await getDoc(userDoc);
-                        const userData = userDocSnap.data();
+            if (!user) {
+                alert('User not logged in.');
+                return;
+            }
 
-                        if (userData) {
-                            // Find the index of the stamp in the array and set it to true
-                            const stampIndex = userData.stamps.findIndex(stamp => stamp.name === codeInput);
-                            if (stampIndex !== -1) {
-                                userData.stamps[stampIndex].value = true;
+            if (![code1, code2, code3].includes(codeInput)) {
+                alert('Invalid code.');
+                return;
+            }
 
-                                // Update the Firestore document with the modified data
-                                await updateDoc(userDoc, { stamps: userData.stamps });
-                                alert('Stamp set to true!');
-                            } else {
-                                alert('Invalid code.');
-                            }
-                        } else {
-                            alert('User data not found.');
-                        }
-                    } else {
-                        alert('User not logged in.');
-                    }
-                } else {
-                    alert('Invalid code.');
-                }
-            });
+            const userDoc = doc(firestore, 'users', user.uid);
+            const userData = { [`stamps.${codeInput}`]: true };
+
+            await updateDoc(userDoc, userData);
+            alert('Stamp set to true!');
+        }
+
+        // Event listener for the stamp button
+        const stampButton = document.getElementById('stamp-button');
+        stampButton.addEventListener('click', () => {
+            const codeInput = prompt('Enter a code:');
+            updateUserWithCode(codeInput);
+        });
 
             setPersistence(auth, browserLocalPersistence)
             .then(() => {
