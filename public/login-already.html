@@ -70,25 +70,18 @@
 
                 const userDocRef = doc(firestore, 'users', user.uid);
 
-                // Construct an object with the specific fields to update
-                const fieldToUpdate = {};
-
-                // Set 'Stamp 1' and 'Stamp 3' to true
-                if (codeInput === '123' || codeInput === '789') {
-                    fieldToUpdate[codeInput] = true;
-                }
-
                 try {
-                    // Log the fieldToUpdate object
-                    console.log('Updating Firestore with:', fieldToUpdate);
+                    let fieldToUpdate = {};
+                    
+                    // Define the fields to update based on the codeInput
+                    if (codeInput === '123') {
+                        fieldToUpdate = { 'Stamp 1': true };
+                    } else if (codeInput === '789') {
+                        fieldToUpdate = { 'Stamp 3': true };
+                    }
 
-                    // Update the Firestore document
+                    // Update the Firestore document with the specified fieldToUpdate
                     await updateDoc(userDocRef, fieldToUpdate);
-
-                    // Log the updated Firestore document data
-                    const userDocSnapshot = await getDoc(userDocRef);
-                    const updatedUserData = userDocSnapshot.data();
-                    console.log('Updated Firestore document data:', updatedUserData);
 
                     alert('Stamp set to true!');
                 } catch (error) {
