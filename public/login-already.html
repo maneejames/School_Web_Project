@@ -56,49 +56,44 @@
             // });
 
             async function updateUserWithCode(codeInput) {
-            const user = auth.currentUser;
+                const user = auth.currentUser;
 
-            if (!user) {
-                alert('User not logged in.');
-                return;
+                if (!user) {
+                    alert('User not logged in.');
+                    return;
+                }
+
+                if (![code1, code2, code3].includes(codeInput)) {
+                    alert('Invalid code.');
+                    return;
+                }
+
+                const userDoc = doc(firestore, 'users', user.uid);
+
+                const userDocSnap = await getDoc(userDoc);
+                const userData = userDocSnap.data();
+
+                if (!userData) {
+                    alert('User data not found.');
+                    return;
+                }
+
+                if (!userData.stamps) {
+                    userData.stamps = {};
+                }
+
+                // Set the specific code to true
+                userData.stamps[codeInput] = true;
+
+                await updateDoc(userDoc, { stamps: userData.stamps });
+                alert('Stamp set to true!');
             }
 
-            if (![code1, code2, code3].includes(codeInput)) {
-                alert('Invalid code.');
-                return;
-            }
-
-            const userDoc = doc(firestore, 'users', user.uid);
-            const userData = { [`stamps.${codeInput}`]: true };
-
-            await updateDoc(userDoc, userData);
-            alert('Stamp set to true!');
-        }
-
-        // Event listener for the stamp button
-        const stampButton = document.getElementById('stamp-button');
-        stampButton.addEventListener('click', () => {
-            const codeInput = prompt('Enter a code:');
-            updateUserWithCode(codeInput);
-        });
-
-            setPersistence(auth, browserLocalPersistence)
-            .then(() => {
-                // Initialize the app or continue with your application logic
-
-                // Check user authentication state on page load
-                onAuthStateChanged(auth, (user) => {
-                    if (user) {
-                        // User is signed in
-                        console.log('User is signed in:', user.email);
-                    } else {
-                        // User is signed out
-                        console.log('User is signed out');
-                    }
-                });
-            })
-            .catch((error) => {
-                console.error('Error enabling persistence:', error);
+            // Event listener for the stamp button
+            const stampButton = document.getElementById('stamp-button');
+            stampButton.addEventListener('click', () => {
+                const codeInput = prompt('Enter a code:');
+                updateUserWithCode(codeInput);
             });
 
         </script>
