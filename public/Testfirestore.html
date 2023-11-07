@@ -74,34 +74,6 @@
                 }
             });
 
-            const code1 = "123"; // Replace with your code
-            const code2 = "456"; // Replace with your code
-            const code3 = "789"; // Replace with your code
-
-            const stampButton = document.getElementById('stamp-button');
-            stampButton.addEventListener('click', async () => {
-                console.log(firebase.auth().currentUser)
-                const codeInput = prompt('Enter a code:');
-                if (codeInput === code1 || codeInput === code2 || codeInput === code3) {
-                    // Valid code, set the stamp to true for the current user
-                    const user = auth.currentUser;
-                    if (user) {
-                        // Update the Firestore document to set the stamp to true
-                        const userDoc = doc(firestore, 'users', user.uid);
-                        await updateDoc(userDoc, {
-                            stamps: {
-                                [codeInput]: true
-                            }
-                        });
-                        alert('Stamp set to true!');
-                    } else {
-                        alert('User not logged in.');
-                    }
-                } else {
-                    alert('Invalid code.');
-                }
-            });
-
             setPersistence(auth, browserLocalPersistence)
             .then(() => {
                 // Initialize the app or continue with your application logic
