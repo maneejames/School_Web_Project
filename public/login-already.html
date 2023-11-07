@@ -70,10 +70,13 @@
 
                 const userDocRef = doc(firestore, 'users', user.uid);
 
-                // Construct an object with the specific field to update
-                const fieldToUpdate = {
-                    [codeInput]: true,
-                };
+                // Construct an object with the specific fields to update
+                const fieldToUpdate = {};
+
+                // Set 'Stamp 1' and 'Stamp 3' to true
+                if (codeInput === '123' || codeInput === '789') {
+                    fieldToUpdate[codeInput] = true;
+                }
 
                 try {
                     await updateDoc(userDocRef, fieldToUpdate);
