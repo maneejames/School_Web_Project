@@ -34,7 +34,6 @@
     
             const stampButton = document.getElementById('stamp-button');
             stampButton.addEventListener('click', async () => {
-                console.log(firebase.auth().currentUser)
                 const codeInput = prompt('Enter a code:');
                 if (codeInput === code1 || codeInput === code2 || codeInput === code3) {
                     // Valid code, set the stamp to true for the current user
