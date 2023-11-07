@@ -56,45 +56,33 @@
             // });
 
             async function updateUserWithCode(codeInput) {
-                const user = auth.currentUser;
+            const user = auth.currentUser;
 
-                if (!user) {
-                    alert('User not logged in.');
-                    return;
-                }
-
-                if (![code1, code2, code3].includes(codeInput)) {
-                    alert('Invalid code.');
-                    return;
-                }
-
-                const userDoc = doc(firestore, 'users', user.uid);
-
-                const userDocSnap = await getDoc(userDoc);
-                const userData = userDocSnap.data();
-
-                if (!userData) {
-                    alert('User data not found.');
-                    return;
-                }
-
-                if (!userData.stamps) {
-                    userData.stamps = {};
-                }
-
-                // Set the specific code to true
-                userData.stamps[codeInput] = true;
-
-                await updateDoc(userDoc, userData); // Update the document with userData
-                alert('Stamp set to true!');
+            if (!user) {
+                alert('User not logged in.');
+                return;
             }
 
-            // Event listener for the stamp button
-            const stampButton = document.getElementById('stamp-button');
-            stampButton.addEventListener('click', () => {
-                const codeInput = prompt('Enter a code:');
-                updateUserWithCode(codeInput);
-            });
+            if (![code1, code2, code3].includes(codeInput)) {
+                alert('Invalid code.');
+                return;
+            }
+
+            const userDocRef = doc(firestore, 'users', user.uid);
+
+            // Construct an object with the specific field to update
+            const fieldToUpdate = {
+                [`stamps.${codeInput}`]: true,
+            };
+
+            try {
+                await updateDoc(userDocRef, fieldToUpdate);
+                alert('Stamp set to true!');
+            } catch (error) {
+                console.error('Error updating document:', error);
+                alert('Failed to update the document.');
+            }
+        }
         </script>
 </head>
 <body>
