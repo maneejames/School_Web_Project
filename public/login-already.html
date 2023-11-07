@@ -85,7 +85,7 @@
                 // Set the specific code to true
                 userData.stamps[codeInput] = true;
 
-                await updateDoc(userDoc, { stamps: userData.stamps });
+                await updateDoc(userDoc, userData); // Update the document with userData
                 alert('Stamp set to true!');
             }
 
@@ -95,7 +95,6 @@
                 const codeInput = prompt('Enter a code:');
                 updateUserWithCode(codeInput);
             });
-
         </script>
 </head>
 <body>
