@@ -42,8 +42,8 @@
                     const user = userCredential.user;
 
                     // Store user data in Firestore
-                    const usersCollection = collection(firestore, 'users');
-                    await addDoc(usersCollection, {
+                    const userDocRef = doc(firestore, 'users', user.uid);
+                    await setDoc(userDocRef, {
                         email: user.email,
                         classroom: classroom, // Store classroom data
                         stamps: stamps,
