@@ -71,9 +71,17 @@
                 const userDocRef = doc(firestore, 'users', user.uid);
 
                 try {
-                    await updateDoc(userDocRef, {
-                    stamps: stamps.map(stamp => ({ ...stamp, value: true }))
-                    });
+                    let fieldToUpdate = {};
+                    
+                    // Define the fields to update based on the codeInput
+                    if (codeInput === '123') {
+                        fieldToUpdate = { 'Stamp 1': true };
+                    } else if (codeInput === '789') {
+                        fieldToUpdate = { 'Stamp 3': true };
+                    }
+
+                    // Update the Firestore document with the specified fieldToUpdate
+                    await updateDoc(userDocRef, fieldToUpdate);
 
                     alert('Stamp set to true!');
                 } catch (error) {
@@ -82,12 +90,12 @@
                 }
             }
 
-            // Event listener for the stamp button
-            const stampButton = document.getElementById('stamp-button');
-            stampButton.addEventListener('click', () => {
-                const codeInput = prompt('Enter a code:');
-                updateUserWithCode(codeInput);
-            });
+// Event listener for the stamp button
+const stampButton = document.getElementById('stamp-button');
+stampButton.addEventListener('click', () => {
+    const codeInput = prompt('Enter a code:');
+    updateUserWithCode(codeInput);
+});
         </script>
 </head>
 <body>
