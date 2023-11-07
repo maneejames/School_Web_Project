@@ -56,33 +56,40 @@
             // });
 
             async function updateUserWithCode(codeInput) {
-            const user = auth.currentUser;
+                const user = auth.currentUser;
 
-            if (!user) {
-                alert('User not logged in.');
-                return;
+                if (!user) {
+                    alert('User not logged in.');
+                    return;
+                }
+
+                if (![code1, code2, code3].includes(codeInput)) {
+                    alert('Invalid code.');
+                    return;
+                }
+
+                const userDocRef = doc(firestore, 'users', user.uid);
+
+                // Construct an object with the specific field to update
+                const fieldToUpdate = {
+                    [`stamps.${codeInput}`]: true,
+                };
+
+                try {
+                    await updateDoc(userDocRef, fieldToUpdate);
+                    alert('Stamp set to true!');
+                } catch (error) {
+                    console.error('Error updating document:', error);
+                    alert('Failed to update the document.');
+                }
             }
 
-            if (![code1, code2, code3].includes(codeInput)) {
-                alert('Invalid code.');
-                return;
-            }
-
-            const userDocRef = doc(firestore, 'users', user.uid);
-
-            // Construct an object with the specific field to update
-            const fieldToUpdate = {
-                [`stamps.${codeInput}`]: true,
-            };
-
-            try {
-                await updateDoc(userDocRef, fieldToUpdate);
-                alert('Stamp set to true!');
-            } catch (error) {
-                console.error('Error updating document:', error);
-                alert('Failed to update the document.');
-            }
-        }
+            // Event listener for the stamp button
+            const stampButton = document.getElementById('stamp-button');
+            stampButton.addEventListener('click', () => {
+                const codeInput = prompt('Enter a code:');
+                updateUserWithCode(codeInput);
+            });
         </script>
 </head>
 <body>
