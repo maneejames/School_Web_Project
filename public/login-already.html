@@ -71,17 +71,9 @@
                 const userDocRef = doc(firestore, 'users', user.uid);
 
                 try {
-                    let fieldToUpdate = {};
-                    
-                    // Define the fields to update based on the codeInput
-                    if (codeInput === '123') {
-                        fieldToUpdate = { 'Stamp 1': true };
-                    } else if (codeInput === '789') {
-                        fieldToUpdate = { 'Stamp 3': true };
-                    }
-
-                    // Update the Firestore document with the specified fieldToUpdate
-                    await updateDoc(userDocRef, fieldToUpdate);
+                    await updateDoc(userDocRef, {
+                    stamps: stamps.map(stamp => ({ ...stamp, value: true }))
+                    });
 
                     alert('Stamp set to true!');
                 } catch (error) {
