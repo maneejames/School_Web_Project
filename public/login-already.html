@@ -70,8 +70,6 @@
 
                 const userDocRef = doc(firestore, 'users', user.uid);
 
-                console.log(userDocRef)
-
                 // Construct an object with the specific fields to update
                 const fieldToUpdate = {};
 
@@ -81,7 +79,17 @@
                 }
 
                 try {
+                    // Log the fieldToUpdate object
+                    console.log('Updating Firestore with:', fieldToUpdate);
+
+                    // Update the Firestore document
                     await updateDoc(userDocRef, fieldToUpdate);
+
+                    // Log the updated Firestore document data
+                    const userDocSnapshot = await getDoc(userDocRef);
+                    const updatedUserData = userDocSnapshot.data();
+                    console.log('Updated Firestore document data:', updatedUserData);
+
                     alert('Stamp set to true!');
                 } catch (error) {
                     console.error('Error updating document:', error);
