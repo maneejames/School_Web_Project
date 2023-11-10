@@ -79,11 +79,12 @@
 
     <script type="module">
         // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
-        import {getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, onAuthStateChanged, signInWithEmailAndPassword, browserLocalPersistence, setPersistence } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
-        
+        import {getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, onAuthStateChanged, signInWithEmailAndPassword, browserLocalPersistence, setPersistence } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+        import { getFirestore, collection, addDoc, updateDoc, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
+
         // Your web app's Firebase configuration
         const firebaseConfig = {
         apiKey: "AIzaSyAIwzxvlLd9UTZXC_qc3fqZ9Qarifhjzcs",

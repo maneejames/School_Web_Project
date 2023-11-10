@@ -6,6 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EP-MWS Openhouse 2023</title>
     <link rel="stylesheet" href="Style/style.css">
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+        import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, browserLocalPersistence, setPersistence} from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+        import { getFirestore, collection, addDoc, updateDoc, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
+
+        const firebaseConfig = {
+                apiKey: "AIzaSyAIwzxvlLd9UTZXC_qc3fqZ9Qarifhjzcs",
+                authDomain: "school-openhouse.firebaseapp.com",
+                projectId: "school-openhouse",
+                storageBucket: "school-openhouse.appspot.com",
+                messagingSenderId: "321971868041",
+                appId: "1:321971868041:web:66ddb25a464ab8ea11d158"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const firestore = getFirestore(app);
+
+        /*--================================================== SetPersistence ==================================================--*/
+
+        setPersistence(auth, browserLocalPersistence)
+        .then(() => {
+            // Initialize the app or continue with your application logic
+
+            // Check user authentication state on page load
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // User is signed in
+                    console.log('User is signed in:', user.email);
+                } else {
+                    // User is signed out
+                    console.log('User is signed out');
+                }
+            });
+        })
+        .catch((error) => {
+            console.error('Error enabling persistence:', error);
+        });
+    </script>
 </head>
 
 <body>

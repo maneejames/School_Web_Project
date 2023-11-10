@@ -28,6 +28,29 @@
             const auth = getAuth(app);
             const firestore = getFirestore(app);
 
+            /*--================================================== SetPersistence ==================================================--*/
+
+            setPersistence(auth, browserLocalPersistence)
+            .then(() => {
+                // Initialize the app or continue with your application logic
+
+                // Check user authentication state on page load
+                onAuthStateChanged(auth, (user) => {
+                    if (user) {
+                        // User is signed in
+                        console.log('User is signed in:', user.email);
+                    } else {
+                        // User is signed out
+                        console.log('User is signed out');
+                    }
+                });
+            })
+            .catch((error) => {
+                console.error('Error enabling persistence:', error);
+            });
+
+            /*--================================================== Sign up ==================================================--*/
+
             const signupForm = document.getElementById('signup-form');
 
             signupForm.addEventListener('submit', async (e) => {
