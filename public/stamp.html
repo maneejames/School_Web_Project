@@ -152,11 +152,6 @@
             async function Loadstamp() {
                 const user = auth.currentUser;
 
-                if (!user) {
-                    alert('User not logged in.');
-                    return;
-                }
-
                 const userDocRef = doc(firestore, 'users', user.uid);
                 const userDocSnapshot = await getDoc(userDocRef);
                 const userDocData = userDocSnapshot.data();
