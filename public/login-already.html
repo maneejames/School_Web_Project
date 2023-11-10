@@ -125,13 +125,6 @@
                 }
             };
 
-            // Event listener for the stamp button
-            const stampButton = document.getElementById('stamp-button');
-            stampButton.addEventListener('click', () => {
-                const codeInput = prompt('Enter a code:');
-                updateStampValue(codeInput);
-            });
-
             // Add an event listener to the logout button
             document.addEventListener('DOMContentLoaded', () => {
                 const logoutButton = document.getElementById('logout-button');
