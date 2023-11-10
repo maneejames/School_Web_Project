@@ -49,6 +49,29 @@
                 console.error('Error enabling persistence:', error);
             });
 
+            /*--================================================== Logout ==================================================--*/
+
+            const logoutUser = () => {
+            signOut(auth)
+                .then(() => {
+                    alert('User logged out successfully.');
+                    // Redirect to another page or update UI as needed
+                    window.location.href = 'new-about.html';
+                })
+                .catch((error) => {
+                    console.error('Error logging out:', error.message);
+                    alert('Failed to log out.');
+                });
+            };
+
+            // Add an event listener to the logout button
+            document.addEventListener('DOMContentLoaded', () => {
+                const logoutButton = document.getElementById('logout-button');
+                if (logoutButton) {
+                    logoutButton.addEventListener('click', logoutUser);
+                }
+            });
+
             /*--================================================== Update data ==================================================--*/
 
             const updateInputFields = async () => {
@@ -102,7 +125,7 @@
             <li><a class="link" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
             <li><a class="link" href="login-already.html"><i class="fa-solid fa-circle-question"></i> About</a></li>
             <li><a class="link" href="stamp.html"><i class="fa-solid fa-stamp"></i> Stamp</a></li>
-            <li><a class="link" href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log out</a></li>
+            <li><a class="link" href="#" id="logout-button"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log out</a></li>
             <li><a class="btn" href="profile.html"><i class="fa-solid fa-user"></i> Profile</a></li>
         </ul>
         <div class="toggle-btn">
