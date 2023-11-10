@@ -100,6 +100,8 @@
                     stampName = 'Stamp 3';
                 }
 
+                const imageElement = document.getElementById(stampName);
+
                 const userDocRef = doc(firestore, 'users', user.uid);
 
                 try {
@@ -115,6 +117,9 @@
                             for (const key in updatedStamps) {
                                 if (updatedStamps[key].name === stampName) {
                                     updatedStamps[key].value = true;
+                                    if (updatedStamps[key].value = true) {
+                                        imageElement.scr = 'public\images\stamp.jpg';
+                                    }
                                 }
                             }
 
@@ -191,9 +196,15 @@
     <!--================================================== STAMP ==================================================-->
     <div class="container">
         <div class="stamp">
-            <div class="stamp-1"></div>
-            <div class="stamp-2"></div>
-            <div class="stamp-3"></div>
+            <div class="stamp-1">
+                <img id="Stamp 1" src="#">
+            </div>
+            <div class="stamp-2">
+                <img id="Stamp 2" src="#">
+            </div>
+            <div class="stamp-3">
+                <img id="Stamp 3" src="#">
+            </div>
         </div>
     </div>
 
