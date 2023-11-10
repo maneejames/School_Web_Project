@@ -28,75 +28,123 @@
             const auth = getAuth(app);
             const firestore = getFirestore(app);
 
-            const code1 = "123"; // Replace with your code
-            const code2 = "456"; // Replace with your code
-            const code3 = "789"; // Replace with your code
+            // const code1 = "123"; // Replace with your code
+            // const code2 = "456"; // Replace with your code
+            // const code3 = "789"; // Replace with your code
 
-            async function updateStampValue(codeInput) {
-                const user = auth.currentUser;
+            // async function updateStampValue(codeInput) {
+            //     const user = auth.currentUser;
                 
-                if (!user) {
-                    alert('User not logged in.');
-                    return;
-                }
+            //     if (!user) {
+            //         alert('User not logged in.');
+            //         return;
+            //     }
 
-                if (![code1, code2, code3].includes(codeInput)) {
-                    alert('Invalid code.');
-                    return;
-                }
+            //     if (![code1, code2, code3].includes(codeInput)) {
+            //         alert('Invalid code.');
+            //         return;
+            //     }
                 
-                let stampName;
+            //     let stampName;
 
-                if(codeInput === '123') {
-                    stampName = 'Stamp 1'
-                }
-                else if (codeInput === '456') {
-                    stampName = 'Stamp 2'
-                }
-                else {
-                    stampName = 'Stamp 3'
-                }
+            //     if(codeInput === '123') {
+            //         stampName = 'Stamp 1'
+            //     }
+            //     else if (codeInput === '456') {
+            //         stampName = 'Stamp 2'
+            //     }
+            //     else {
+            //         stampName = 'Stamp 3'
+            //     }
 
-                const userDocRef = doc(firestore, 'users', user.uid);
+            //     const userDocRef = doc(firestore, 'users', user.uid);
 
-                try {
-                    const userDocSnapshot = await getDoc(userDocRef);
+            //     try {
+            //         const userDocSnapshot = await getDoc(userDocRef);
 
-                    if (userDocSnapshot.exists()) {
-                        const userDocData = userDocSnapshot.data();
+            //         if (userDocSnapshot.exists()) {
+            //             const userDocData = userDocSnapshot.data();
 
-                        // Ensure 'stamps' exists in the document data
-                        if (Array.isArray(userDocData.stamps)) {
-                            // Find the specific stamp by 'name' and update its 'value'
-                            const updatedStamps = userDocData.stamps.map(stamp => {
-                                if (stamp.name === stampName) {
-                                    return { ...stamp, value: true };
-                                }
-                                return stamp;
-                            });
+            //             // Ensure 'stamps' exists in the document data
+            //             if (Array.isArray(userDocData.stamps)) {
+            //                 // Find the specific stamp by 'name' and update its 'value'
+            //                 const updatedStamps = userDocData.stamps.map(stamp => {
+            //                     if (stamp.name === stampName) {
+            //                         return { ...stamp, value: true };
+            //                     }
+            //                     return stamp;
+            //                 });
 
-                            // Update the Firestore document with the modified 'stamps' array
-                            await updateDoc(userDocRef, { stamps: updatedStamps });
-                            alert('Stamp value updated successfully.');
-                        } else {
-                            console.error('No "stamps" field found in the user document.');
-                        }
-                    } else {
-                        console.error('User document not found.');
-                    }
-                } catch (error) {
-                    console.error('Error updating stamp value:', error);
-                    alert('Failed to update the stamp value.');
-                }
-            }
+            //                 // Update the Firestore document with the modified 'stamps' array
+            //                 await updateDoc(userDocRef, { stamps: updatedStamps });
+            //                 alert('Stamp value updated successfully.');
+            //             } else {
+            //                 console.error('No "stamps" field found in the user document.');
+            //             }
+            //         } else {
+            //             console.error('User document not found.');
+            //         }
+            //     } catch (error) {
+            //         console.error('Error updating stamp value:', error);
+            //         alert('Failed to update the stamp value.');
+            //     }
+            // }
 
             // Event listener for the stamp button
             const stampButton = document.getElementById('stamp-button');
             stampButton.addEventListener('click', () => {
                 const codeInput = prompt('Enter a code:');
-                updateStampValue(codeInput)
+                // updateStampValue(codeInput)
+                updateStampValue(stampNameToUpdate);
             });
         
+            async function updateStampValue(stampName) {
+    const user = auth.currentUser;
+    
+    if (!user) {
+        alert('User not logged in.');
+        return;
+    }
+
+    const userDocRef = doc(firestore, 'users', user.uid);
+
+    try {
+        const userDocSnapshot = await getDoc(userDocRef);
+
+        if (userDocSnapshot.exists()) {
+            const userDocData = userDocSnapshot.data();
+
+            // Ensure 'stamps' exists in the document data
+            if ('stamps' in userDocData) {
+                // Find the specific stamp by 'name' and update its 'value'
+                const updatedStamps = userDocData.stamps.map(stamp => {
+                    if (stamp.name === stampName) {
+                        return { ...stamp, value: true };
+                    }
+                    return stamp;
+                });
+
+                // Update the Firestore document with the modified 'stamps' array
+                await updateDoc(userDocRef, { stamps: updatedStamps });
+                alert('Stamp value updated successfully.');
+            } else {
+                console.error('No "stamps" field found in the user document.');
+            }
+        } else {
+            console.error('User document not found.');
+        }
+    } catch (error) {
+        console.error('Error updating stamp value:', error);
+        alert('Failed to update the stamp value.');
+    }
+}
+
+// Example usage:
+const stampNameToUpdate = 'Stamp 1'; // Replace with the name of the stamp you want to update
+
+// Call the function to update the specific stamp value
+updateStampValue(stampNameToUpdate);
+
         </script>
 </head>
 <body>
