@@ -65,9 +65,9 @@
 
                         if (userDocSnapshot.exists()) {
                             const userData = userDocSnapshot.data();
-                            prefixInput.value = user._2prefix || '';
+                            prefixInput.value = userData._2prefix || '';
                             fnameInput.value = userData._3firstname || '';
-                            prefixInput.value = user._4lastname || '';
+                            prefixInput.value = userData._4lastname || '';
                             fnameInput.value = userData.classroom || ''; 
                         } else {
                             // User document not found in Firestore
@@ -75,6 +75,7 @@
                             fnameInput.value = '';
                             prefixInput.value = '';
                             fnameInput.value = '';
+                            console.log("no doc")
                         }
                     } else {
                         // User is not logged in, clear the input fields
