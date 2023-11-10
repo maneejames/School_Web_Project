@@ -214,13 +214,13 @@
             // // Example usage:
             // const stampNameToUpdate = 'Stamp 1'; // Replace with the name of the stamp you want to update
 
-            // // Event listener for the stamp button
-            // const stampButton = document.getElementById('stamp-button');
-            // stampButton.addEventListener('click', () => {
-            //     const codeInput = prompt('Enter a code:');
-            //     // updateStampValue(codeInput);
-            //     updateStampValue(stampNameToUpdate);
-            // });
+            // Event listener for the stamp button
+            const stampButton = document.getElementById('stamp-button');
+            stampButton.addEventListener('click', () => {
+                const codeInput = prompt('Enter a code:');
+                // updateStampValue(codeInput);
+                updateStampValue(stampNameToUpdate);
+            });
         
         </script>
 </head>
