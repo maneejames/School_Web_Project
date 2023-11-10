@@ -44,6 +44,26 @@
         .catch((error) => {
             console.error('Error enabling persistence:', error);
         });
+
+        const checkAuthAndRedirect = () => {
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // User is logged in, redirect to this page
+                    window.location.href = 'index.html';
+                } else {
+                    // User is not logged in, redirect to this page
+                    window.location.href = 'new-about.html';
+                }
+            });
+        };
+
+        document.addEventListener('DOMContentLoaded', checkAuthAndRedirect);
+
+        // Add a click event listener to a button for manual redirection
+        const redirectButton = document.getElementById('redirectButton');
+        redirectButton.addEventListener('click', () => {
+            checkAuthAndRedirect();
+        });
     </script>
 </head>
 
@@ -54,7 +74,7 @@
         <h1 class="topic">EP-MWS Open House 2023</h1>
         <h2 class="date">Date/Month/2023</h2>
         <div class="btn">
-            <a href="new-about.html">Click to enter the main page</a>
+            <a href="new-about.html" id="redirectButton">Click to enter the main page</a>
         </div>
     </div>
 </body>
