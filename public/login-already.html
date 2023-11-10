@@ -73,7 +73,7 @@
                                 // Update the boolean value of the specific stamp in the nested map
                                 const updatedStamps = {
                                     ...userDocData.stamps,
-                                    [codeInput]: { ...userDocData.stamps[codeInput], value: true }
+                                    [codeInput]: { ...userDocData.stamps[stampNameToUpdate], value: true }
                                 };
 
                                 // Update the Firestore document with the modified 'stamps' map
