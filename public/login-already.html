@@ -32,32 +32,32 @@
             const code2 = "456"; // Replace with your code
             const code3 = "789"; // Replace with your code
 
-            async function updateStampValue(codeInput) {
-                const user = auth.currentUser;
+            // async function updateStampValue(codeInput) {
+            //     const user = auth.currentUser;
 
-                if (!user) {
-                    alert('User not logged in.');
-                    return;
-                }
+            //     if (!user) {
+            //         alert('User not logged in.');
+            //         return;
+            //     }
 
-                const userDocRef = doc(firestore, 'users', user.uid);
-                const userDocSnapshot = await getDoc(userDocRef);
-                const userDocData = userDocSnapshot.data();
-                const stampsMap = userDocData.stamps;
-                
-                if (stampsMap && typeof stampsMap === 'object') {
-                    // Access the value property of the nested map at key '0'
-                    const valueAtIndex0 = stampsMap['0']?.value;
+            //     const userDocRef = doc(firestore, 'users', user.uid);
+            //     const userDocSnapshot = await getDoc(userDocRef);
+            //     const userDocData = userDocSnapshot.data();
+            //     const stampsMap = userDocData.stamps;
 
-                    if (valueAtIndex0 !== undefined) {
-                        alert(`Value at index 0: ${valueAtIndex0}`);
-                    } else {
-                        console.error('Value at index 0 is undefined.');
-                    }
-                } else {
-                    console.error('"stamps" is not a map in the user document.');
-                    // You might need to adjust your data structure here
-                }
+            //     if (stampsMap && typeof stampsMap === 'object') {
+            //         // Access the value property of the nested map at key '0'
+            //         const valueAtIndex0 = stampsMap['0']?.value;
+
+            //         if (valueAtIndex0 !== undefined) {
+            //             alert(`Value at index 0: ${valueAtIndex0}`);
+            //         } else {
+            //             console.error('Value at index 0 is undefined.');
+            //         }
+            //     } else {
+            //         console.error('"stamps" is not a map in the user document.');
+            //         // You might need to adjust your data structure here
+            //     }
 
                 // if (![code1, code2, code3].includes(codeInput)) {
                 //     alert('Invalid code.');
@@ -111,13 +111,59 @@
                 //     console.error('Error updating stamp value:', error);
                 //     alert('Failed to update the stamp value.');
                 // }
-            }
+            // }
+
+            const updateStampValue = async (stampName) => {
+                const user = auth.currentUser;
+
+                if (!user) {
+                    alert('User not logged in.');
+                    return;
+                }
+
+                const userDocRef = doc(firestore, 'users', user.uid);
+
+                try {
+                    const userDocSnapshot = await getDoc(userDocRef);
+
+                    if (userDocSnapshot.exists()) {
+                        const userDocData = userDocSnapshot.data();
+
+                        // Ensure 'stamps' exists in the document data
+                        if ('stamps' in userDocData) {
+                            // Find the specific stamp by 'name' and update its 'value'
+                            const updatedStamps = { ...userDocData.stamps };
+                            for (const key in updatedStamps) {
+                                if (updatedStamps[key].name === stampName) {
+                                    updatedStamps[key].value = true;
+                                }
+                            }
+
+                            // Update the Firestore document with the modified 'stamps' map
+                            await updateDoc(userDocRef, { stamps: updatedStamps });
+                            alert('Stamp value updated successfully.');
+                        } else {
+                            console.error('No "stamps" field found in the user document.');
+                        }
+                    } else {
+                        console.error('User document not found.');
+                    }
+                } catch (error) {
+                    console.error('Error updating stamp value:', error);
+                    alert('Failed to update the stamp value.');
+                }
+            };
+
+            // Example usage:
+            const stampNameToUpdate = 'Stamp 1'; // Replace with the name of the stamp you want to update
+            updateStampValue(stampNameToUpdate);
 
             // Event listener for the stamp button
             const stampButton = document.getElementById('stamp-button');
             stampButton.addEventListener('click', () => {
                 const codeInput = prompt('Enter a code:');
-                updateStampValue(codeInput);
+                // updateStampValue(codeInput);
+                updateStampValue(stampNameToUpdate);
             });
         
         </script>
