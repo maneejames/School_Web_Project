@@ -152,6 +152,10 @@
             async function Loadstamp() {
                 const user = auth.currentUser;
 
+                let img1 = document.getElementById('Stamp1');
+                let img2 = document.getElementById('Stamp2');
+                let img3 = document.getElementById('Stamp3');
+
                 const userDocRef = doc(firestore, 'users', user.uid);
                 const userDocSnapshot = await getDoc(userDocRef);
                 const userDocData = userDocSnapshot.data();
@@ -163,19 +167,19 @@
                     const valueAtIndex2 = stampsMap['2']?.value;
 
                     if (valueAtIndex0 == true) {
-                        imageElement.setAttribute("src", "/images/stamp.jpg");
+                        img1.setAttribute("src", "/images/stamp.jpg");
                     } else {
                         console.error('Value at index 0 is undefined.');
                     }
 
                     if (valueAtIndex1 == true) {
-                        imageElement.setAttribute("src", "/images/stamp.jpg");
+                        img2.setAttribute("src", "/images/stamp.jpg");
                     } else {
                         console.error('Value at index 1 is undefined.');
                     }
 
                     if (valueAtIndex2 == true) {
-                        imageElement.setAttribute("src", "/images/stamp.jpg");
+                        img3.setAttribute("src", "/images/stamp.jpg");
                     } else {
                         console.error('Value at index 2 is undefined.');
                     }
