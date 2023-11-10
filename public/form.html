@@ -37,10 +37,6 @@
                 const prefix = document.getElementById('prefix').value;
                 const firstname = document.getElementById('first-name').value;
                 const lastname = document.getElementById('last-name').value;
-                const student = document.getElementById('student').value;
-                const teacher = document.getElementById('teacher').value;
-                const parent = document.getElementById('parent').value;
-                const generalpublic = document.getElementById('general-public').value;
                 const education = document.getElementById('education').value;
                 const school = document.getElementById('school').value;
                 const province = document.getElementById('province').value;
@@ -59,17 +55,13 @@
                     // Store user data in Firestore
                     const userDocRef = doc(firestore, 'users', user.uid);
                     await setDoc(userDocRef, {
-                        email: user.email,
-                        prefix: prefix, 
-                        firstname: firstname, 
-                        lastname: lastname, 
-                        student: student, 
-                        teacher: teacher, 
-                        parent: parent,
-                        generalpublic: generalpublic,
-                        education: education,
-                        school: school,
-                        province: province,
+                        _1email: user.email,
+                        _2prefix: prefix, 
+                        _3firstname: firstname, 
+                        _4lastname: lastname, 
+                        _5education: education,
+                        _6school: school,
+                        _7province: province,
                         stamps: stamps,
                     });
 
