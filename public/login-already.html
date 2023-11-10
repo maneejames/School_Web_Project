@@ -40,7 +40,7 @@
                     return;
                 }
 
-                const userDocRef = doc(firestore, 'users', user.uid, "stamps", "0", "value");
+                const userDocRef = doc(firestore, 'users', user.uid, "stamps");
                 const userDocSnapshot = await getDoc(userDocRef);
                 
                 if (userDocSnapshot.exists()) {
