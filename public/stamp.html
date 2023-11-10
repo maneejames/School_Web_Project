@@ -195,49 +195,50 @@
             async function Loadstamp() {
                 const user = auth.currentUser;
 
-                if (user) {
-                    let img1 = document.getElementById('Stamp1');
-                    let img2 = document.getElementById('Stamp2');
-                    let img3 = document.getElementById('Stamp3');
+                if (!user) {
+                    console.error('User not logged in.');
+                    return;
+                }
 
-                    const userDocRef = doc(firestore, 'users', user.uid);
-                    const userDocSnapshot = await getDoc(userDocRef);
+                let img1 = document.getElementById('Stamp1');
+                let img2 = document.getElementById('Stamp2');
+                let img3 = document.getElementById('Stamp3');
 
-                    if (userDocSnapshot.exists()) {
-                        const userDocData = userDocSnapshot.data();
-                        const stampsMap = userDocData.stamps;
+                const userDocRef = doc(firestore, 'users', user.uid);
+                const userDocSnapshot = await getDoc(userDocRef);
 
-                        if (stampsMap && typeof stampsMap === 'object') {
-                            const valueAtIndex0 = stampsMap['0']?.value;
-                            const valueAtIndex1 = stampsMap['1']?.value;
-                            const valueAtIndex2 = stampsMap['2']?.value;
+                if (userDocSnapshot.exists()) {
+                    const userDocData = userDocSnapshot.data();
+                    const stampsMap = userDocData.stamps;
 
-                            if (valueAtIndex0 === true) {
-                                img1.setAttribute("src", "/images/stamp.jpg");
-                            } else {
-                                console.error('Value at index 0 is undefined or not true.');
-                            }
+                    if (stampsMap && typeof stampsMap === 'object') {
+                        const valueAtIndex0 = stampsMap['0']?.value;
+                        const valueAtIndex1 = stampsMap['1']?.value;
+                        const valueAtIndex2 = stampsMap['2']?.value;
 
-                            if (valueAtIndex1 === true) {
-                                img2.setAttribute("src", "/images/stamp.jpg");
-                            } else {
-                                console.error('Value at index 1 is undefined or not true.');
-                            }
-
-                            if (valueAtIndex2 === true) {
-                                img3.setAttribute("src", "/images/stamp.jpg");
-                            } else {
-                                console.error('Value at index 2 is undefined or not true.');
-                            }
+                        if (valueAtIndex0 === true) {
+                            img1.setAttribute("src", "/images/stamp.jpg");
                         } else {
-                            console.error('"stamps" is not a map in the user document.');
-                            // You might need to adjust your data structure here
+                            console.error('Value at index 0 is undefined or not true.');
+                        }
+
+                        if (valueAtIndex1 === true) {
+                            img2.setAttribute("src", "/images/stamp.jpg");
+                        } else {
+                            console.error('Value at index 1 is undefined or not true.');
+                        }
+
+                        if (valueAtIndex2 === true) {
+                            img3.setAttribute("src", "/images/stamp.jpg");
+                        } else {
+                            console.error('Value at index 2 is undefined or not true.');
                         }
                     } else {
-                        console.error('User document not found.');
+                        console.error('"stamps" is not a map in the user document.');
+                        // You might need to adjust your data structure here
                     }
                 } else {
-                    console.error('User not logged in.');
+                    console.error('User document not found.');
                 }
             }
 
