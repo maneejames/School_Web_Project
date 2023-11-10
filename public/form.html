@@ -9,6 +9,79 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+            import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, browserLocalPersistence, setPersistence} from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+            import { getFirestore, collection, addDoc, updateDoc, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
+
+            const firebaseConfig = {
+                    apiKey: "AIzaSyAIwzxvlLd9UTZXC_qc3fqZ9Qarifhjzcs",
+                    authDomain: "school-openhouse.firebaseapp.com",
+                    projectId: "school-openhouse",
+                    storageBucket: "school-openhouse.appspot.com",
+                    messagingSenderId: "321971868041",
+                    appId: "1:321971868041:web:66ddb25a464ab8ea11d158"
+            };
+
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+            const firestore = getFirestore(app);
+
+            const signupForm = document.getElementById('signup-form');
+
+            signupForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('signup-email').value;
+                const password = document.getElementById('signup-password').value; // Add classroom input field
+                const prefix = document.getElementById('prefix').value;
+                const firstname = document.getElementById('first-name').value;
+                const lastname = document.getElementById('last-name').value;
+                const student = document.getElementById('student').value;
+                const teacher = document.getElementById('teacher').value;
+                const parent = document.getElementById('parent').value;
+                const generalpublic = document.getElementById('general-public').value;
+                const education = document.getElementById('education').value;
+                const school = document.getElementById('school').value;
+                const province = document.getElementById('province').value;
+
+
+                const stamps = [
+                    { name: 'Stamp 1', value: false },
+                    { name: 'Stamp 2', value: false },
+                    { name: 'Stamp 3', value: false }
+                ];
+
+                try {
+                    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                    const user = userCredential.user;
+
+                    // Store user data in Firestore
+                    const userDocRef = doc(firestore, 'users', user.uid);
+                    await setDoc(userDocRef, {
+                        email: user.email,
+                        prefix: prefix, 
+                        firstname: firstname, 
+                        lastname: lastname, 
+                        student: student, 
+                        teacher: teacher, 
+                        parent: parent,
+                        generalpublic: generalpublic,
+                        education: education,
+                        school: school,
+                        province: province,
+                        stamps: stamps,
+                    });
+
+                    alert('User registration successful');
+
+                    // Redirect to another page after successful sign-up
+                    window.location.href = 'login-already.html';
+                } catch (error) {
+                    alert('User registration failed. ' + error.message);
+                }
+            });
+        </script>
 </head>
 
 <body>
@@ -19,7 +92,7 @@
     <!--================================================== HEADER ==================================================-->
 
     <!--================================================== FORM ==================================================-->
-    <section class="form">
+    <section class="form" id="signup-form">
         <div class="container">
             <div class="topic">
                 <h1>Sign up</h1>
@@ -29,7 +102,7 @@
                     <div class="name">
                         <div class="prefix">
                             <label for="prefix">Prefix :</label>
-                            <select name="prefix" id="prefix">
+                            <select name="prefix" id="prefix" required>
                                 <option disabled selected value="-"></option>
                                 <option value="master">Master</option>
                                 <option value="miss">Miss</option>
@@ -39,11 +112,19 @@
                         </div>
                         <div class="fname">
                             <label for="first-name">First name :</label>
-                            <input type="text" id="first-name">
+                            <input type="text" id="first-name" required>
                         </div>
                         <div class="lname">
                             <label for="last-name">Last name :</label>
-                            <input type="text" id="last-name">
+                            <input type="text" id="last-name" required>
+                        </div>
+                        <div>
+                            <label for="last-name">Email :</label>
+                            <input type="email" id="signup-email" placeholder="Email" required>
+                        </div>
+                        <div>
+                            <label for="last-name">Password :</label>
+                            <input type="password" id="signup-password" placeholder="Password" required>
                         </div>
                     </div>
                     <div class="user-type">
@@ -88,7 +169,7 @@
                     <div class="student">
                         <div class="education">
                             <label for="education">Education level :</label>
-                            <select name="education" id="education">
+                            <select name="education" id="education" required>
                                 <option disabled selected value="-"></option>
                                 <option value="grade-1-3">Grade 1-3</option>
                                 <option value="grade-4-6">Grade 4-6</option>
@@ -98,21 +179,21 @@
                         </div>
                         <div class="school">
                             <label for="school">School name :</label>
-                            <input type="text" id="school">
+                            <input type="text" id="school" required>
                         </div>
                         <div class="province">
                             <label for="province">School provincial :</label>
-                            <input type="text" id="province">
+                            <input type="text" id="province" required>
                         </div>
                     </div>
                     <div class="teacher">
                         <div class="school">
                             <label for="school">School name :</label>
-                            <input type="text" id="school">
+                            <input type="text" id="school" required>
                         </div>
                         <div class="province">
                             <label for="province">School provincial :</label>
-                            <input type="text" id="province">
+                            <input type="text" id="province" required>
                         </div>
                     </div>
                     <button type="submit">Sign up</button>
