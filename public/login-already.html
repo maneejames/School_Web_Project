@@ -28,6 +28,8 @@
             const auth = getAuth(app);
             const firestore = getFirestore(app);
 
+            /*--================================================== SetPersistence ==================================================--*/
+
             setPersistence(auth, browserLocalPersistence)
             .then(() => {
                 // Initialize the app or continue with your application logic
@@ -46,6 +48,23 @@
             .catch((error) => {
                 console.error('Error enabling persistence:', error);
             });
+
+            /*--================================================== Logout ==================================================--*/
+
+            const logoutUser = () => {
+            signOut(auth)
+                .then(() => {
+                    alert('User logged out successfully.');
+                    // Redirect to another page or update UI as needed
+                    window.location.href = 'your-redirect-page.html';
+                })
+                .catch((error) => {
+                    console.error('Error logging out:', error.message);
+                    alert('Failed to log out.');
+                });
+            };
+
+            /*--================================================== Stamp ==================================================--*/
 
             const code1 = "123"; // Replace with your code
             const code2 = "456"; // Replace with your code
@@ -111,6 +130,14 @@
             stampButton.addEventListener('click', () => {
                 const codeInput = prompt('Enter a code:');
                 updateStampValue(codeInput);
+            });
+
+            // Add an event listener to the logout button
+            document.addEventListener('DOMContentLoaded', () => {
+                const logoutButton = document.getElementById('logout-button');
+                if (logoutButton) {
+                    logoutButton.addEventListener('click', logoutUser);
+                }
             });
         
         </script>
