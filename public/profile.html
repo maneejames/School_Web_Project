@@ -52,11 +52,10 @@
             /*--================================================== Update data ==================================================--*/
 
             const updateInputFields = async () => {
-            const prefixInput = document.getElementById('prefixInput');
-            const fnameInput = document.getElementById('fnameInput');
-            const lnameInput = document.getElementById('lnameInput');
-            const usertypeInput = document.getElementById('user-typeInput');
-
+            const prefixInput = document.getElementById('prefix');
+            const fnameInput = document.getElementById('fname');
+            const lnameInput = document.getElementById('lname');
+            const usertypeInput = document.getElementById('user-type');
             onAuthStateChanged(auth, async (user) => {
                     if (user) {
                         // User is logged in, fetch additional data from Firestore
@@ -152,19 +151,19 @@
                 </div>
                 <div class="info">
                     <div class="prefix">
-                        <label for="prefix" id="prefixInput">Prefix :</label>
+                        <label for="prefix">Prefix :</label>
                         <input type="text" id="prefix" readonly>
                     </div>
                     <div class="fname">
-                        <label for="fname" id="fnameInput">First name :</label>
+                        <label for="fname">First name :</label>
                         <input type="text" id="fname" readonly style="color: black;">
                     </div>
                     <div class="lname">
-                        <label for="lname" id="lnameInput">Last name :</label>
+                        <label for="lname">Last name :</label>
                         <input type="text" id="fname" readonly>
                     </div>
                     <div class="user-type">
-                        <label for="user-type" id="user-typeInput">User type :</label>
+                        <label for="user-type">User type :</label>
                         <input type="text" id="user-type" readonly>
                     </div>
                 </div>
