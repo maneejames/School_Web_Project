@@ -40,14 +40,22 @@
                     return;
                 }
 
-                const userDocRef = doc(firestore, 'users', user.uid, "stamps");
+                const userDocRef = doc(firestore, 'users', user.uid);
                 const userDocSnapshot = await getDoc(userDocRef);
                 
-                if (userDocSnapshot.exists()) {
-                    const userDocData = userDocSnapshot.data();
-                    console.log(userDocData) 
+                if (stampsMap && typeof stampsMap === 'object') {
+                    // Access the value property of the nested map at key '0'
+                    const valueAtIndex0 = stampsMap['0']?.value;
+
+                    if (valueAtIndex0 !== undefined) {
+                        alert(`Value at index 0: ${valueAtIndex0}`);
+                    } else {
+                        console.error('Value at index 0 is undefined.');
+                    }
+                } else {
+                    console.error('"stamps" is not a map in the user document.');
+                    // You might need to adjust your data structure here
                 }
-                // let stampNameToUpdate; // Declare the variable
 
                 // if (![code1, code2, code3].includes(codeInput)) {
                 //     alert('Invalid code.');
