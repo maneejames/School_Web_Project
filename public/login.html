@@ -68,6 +68,13 @@
             </div>
         </div>
 
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="email" id="login-email" placeholder="Email" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+
         <a href="Testfirestore.html" style="font-size: 40px; color: red;">Test</a>
         <!--================================================================ LOGIN ================================================================-->
     </body>
@@ -94,6 +101,48 @@
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider(app);
 
+        /*--================================================== SetPersistence ==================================================--*/
+
+        setPersistence(auth, browserLocalPersistence)
+            .then(() => {
+                // Initialize the app or continue with your application logic
+
+                // Check user authentication state on page load
+                onAuthStateChanged(auth, (user) => {
+                    if (user) {
+                        // User is signed in
+                        console.log('User is signed in:', user.email);
+                    } else {
+                        // User is signed out
+                        console.log('User is signed out');
+                    }
+                });
+            })
+            .catch((error) => {
+                console.error('Error enabling persistence:', error);
+            });
+        
+        /*--================================================== LoginEmail ==================================================--*/    
+        
+        const loginForm = document.getElementById('login-form');
+        loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+
+                try {
+                    await signInWithEmailAndPassword(auth, email, password);
+                    alert('User login successful');
+
+                    // Redirect to another page after successful login
+                    window.location.href = 'login-already.html';
+                } catch (error) {
+                    alert('User login failed. ' + error.message);
+                }
+        });
+
+        
+        /*--================================================== LoginGoogle ==================================================--*/    
         googleLogin.addEventListener('click',(e) => {
             signInWithRedirect(auth, provider);
 
