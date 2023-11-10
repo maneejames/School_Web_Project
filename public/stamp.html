@@ -92,15 +92,17 @@
                 }
 
                 let stampName;
+                let imageElement;
                 if (codeInput === '123') {
                     stampName = 'Stamp 1';
+                    imageElement = document.getElementById('Stamp1');
                 } else if (codeInput === '456') {
                     stampName = 'Stamp 2';
+                    imageElement = document.getElementById('Stamp2');
                 } else {
                     stampName = 'Stamp 3';
+                    imageElement = document.getElementById('Stamp3');
                 }
-
-                const imageElement = document.getElementById('Stamp 1');
 
                 const userDocRef = doc(firestore, 'users', user.uid);
 
@@ -118,7 +120,7 @@
                                 if (updatedStamps[key].name === stampName) {
                                     updatedStamps[key].value = true;
                                     if (updatedStamps[key].value = true) {
-                                        imageElement.scr = 'stamp.jpg';
+                                        imageElement.setAttribute("src", "../images\stamp.jpg");
                                     }
                                 }
                             }
@@ -197,13 +199,13 @@
     <div class="container">
         <div class="stamp">
             <div class="stamp-1">
-                <img id="Stamp 1" src="">
+                <img id="Stamp1" src="">
             </div>
             <div class="stamp-2">
-                <img id="Stamp 2" src="">
+                <img id="Stamp2" src="">
             </div>
             <div class="stamp-3">
-                <img id="Stamp 3" src="">
+                <img id="Stamp3" src="">
             </div>
         </div>
     </div>
