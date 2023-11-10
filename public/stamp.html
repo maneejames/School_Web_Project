@@ -78,6 +78,75 @@
             const code2 = "456"; // Replace with your code
             const code3 = "789"; // Replace with your code
 
+            // const updateStampValue = async (codeInput) => {
+            //     const user = auth.currentUser;
+
+            //     if (!user) {
+            //         alert('User not logged in.');
+            //         return;
+            //     }
+
+            //     if (![code1, code2, code3].includes(codeInput)) {
+            //         alert('Invalid code.');
+            //         return;
+            //     }
+
+            //     let stampName;
+            //     let imageElement;
+            //     if (codeInput === '123') {
+            //         stampName = 'Stamp 1';
+            //         imageElement = document.getElementById('Stamp1');
+            //     } else if (codeInput === '456') {
+            //         stampName = 'Stamp 2';
+            //         imageElement = document.getElementById('Stamp2');
+            //     } else {
+            //         stampName = 'Stamp 3';
+            //         imageElement = document.getElementById('Stamp3');
+            //     }
+
+            //     const userDocRef = doc(firestore, 'users', user.uid);
+
+            //     try {
+            //         const userDocSnapshot = await getDoc(userDocRef);
+
+            //         if (userDocSnapshot.exists()) {
+            //             const userDocData = userDocSnapshot.data();
+
+            //             // Ensure 'stamps' exists in the document data
+            //             if ('stamps' in userDocData) {
+            //                 // Find the specific stamp by 'name' and update its 'value'
+            //                 const updatedStamps = { ...userDocData.stamps };
+            //                 for (const key in updatedStamps) {
+            //                     if (updatedStamps[key].name === stampName) {
+            //                         updatedStamps[key].value = true;
+            //                         if (updatedStamps[key].value = true) {
+            //                             imageElement.setAttribute("src", "/images/stamp.jpg");
+            //                         }
+            //                     }
+            //                 }
+
+            //                 // Update the Firestore document with the modified 'stamps' map
+            //                 await updateDoc(userDocRef, { stamps: updatedStamps });
+            //                 alert('Stamp value updated successfully.');
+            //             } else {
+            //                 console.error('No "stamps" field found in the user document.');
+            //             }
+            //         } else {
+            //             console.error('User document not found.');
+            //         }
+            //     } catch (error) {
+            //         console.error('Error updating stamp value:', error);
+            //         alert('Failed to update the stamp value.');
+            //     }
+            // };
+
+            // // Event listener for the stamp button
+            // const stampButton = document.getElementById('stamp-button');
+            // stampButton.addEventListener('click', () => {
+            //     const codeInput = prompt('Enter a code:');
+            //     updateStampValue(codeInput);
+            // });
+
             const updateStampValue = async (codeInput) => {
                 const user = auth.currentUser;
 
@@ -119,7 +188,11 @@
                             for (const key in updatedStamps) {
                                 if (updatedStamps[key].name === stampName) {
                                     updatedStamps[key].value = true;
-                                    if (updatedStamps[key].value = true) {
+
+                                    // Store the updated stamps in localStorage
+                                    localStorage.setItem('userStamps', JSON.stringify(updatedStamps));
+                                    
+                                    if (updatedStamps[key].value) {
                                         imageElement.setAttribute("src", "/images/stamp.jpg");
                                     }
                                 }
@@ -146,6 +219,23 @@
                 const codeInput = prompt('Enter a code:');
                 updateStampValue(codeInput);
             });
+
+            // Function to check and update stamps from localStorage on page load
+            const checkAndUpdateStamps = () => {
+                const storedStamps = localStorage.getItem('userStamps');
+                if (storedStamps) {
+                    const parsedStamps = JSON.parse(storedStamps);
+                    // Update the UI based on the stored stamp values
+                    // ...
+                }
+            };
+
+            // Check and update stamps on page load
+            window.addEventListener('load', checkAndUpdateStamps);
+
+            /*--================================================== Update pic ==================================================--*/
+
+
 
         </script>
 </head>
