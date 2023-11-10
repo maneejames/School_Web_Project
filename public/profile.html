@@ -48,6 +48,45 @@
             .catch((error) => {
                 console.error('Error enabling persistence:', error);
             });
+
+            /*--================================================== Update data ==================================================--*/
+
+            const updateInputFields = async () => {
+            const prefixInput = document.getElementById('prefixInput');
+            const fnameInput = document.getElementById('fnameInput');
+            const lnameInput = document.getElementById('lnameInput');
+            const usertypeInput = document.getElementById('user-typeInput');
+
+            onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        // User is logged in, fetch additional data from Firestore
+                        const userDocRef = doc(firestore, 'users', user.uid);
+                        const userDocSnapshot = await getDoc(userDocRef);
+
+                        if (userDocSnapshot.exists()) {
+                            const userData = userDocSnapshot.data();
+                            prefixInput.value = user._2prefix || '';
+                            fnameInput.value = userData._3firstname || '';
+                            prefixInput.value = user._4lastname || '';
+                            fnameInput.value = userData.classroom || ''; 
+                        } else {
+                            // User document not found in Firestore
+                            prefixInput.value = '';
+                            fnameInput.value = '';
+                            prefixInput.value = '';
+                            fnameInput.value = '';
+                        }
+                    } else {
+                        // User is not logged in, clear the input fields
+                        prefixInput.value = '';
+                        fnameInput.value = '';
+                        prefixInput.value = '';
+                        fnameInput.value = '';
+                    }
+                });
+            };
+
+            document.addEventListener('DOMContentLoaded', updateInputFields);
         </script>
 </head>
 
@@ -111,20 +150,20 @@
                 </div>
                 <div class="info">
                     <div class="prefix">
-                        <label for="prefix">Prefix :</label>
-                        <input type="text" id="prefix">
+                        <label for="prefix" id="prefixInput">Prefix :</label>
+                        <input type="text" id="prefix" readonly>
                     </div>
                     <div class="fname">
-                        <label for="fname">First name :</label>
-                        <input type="text" id="fname">
+                        <label for="fname" id="fnameInput">First name :</label>
+                        <input type="text" id="fname" readonly>
                     </div>
                     <div class="lname">
-                        <label for="lname">Last name :</label>
-                        <input type="text" id="fname">
+                        <label for="lname" id="lnameInput">Last name :</label>
+                        <input type="text" id="fname" readonly>
                     </div>
                     <div class="user-type">
-                        <label for="user-type">User type :</label>
-                        <input type="text" id="user-type">
+                        <label for="user-type" id="user-typeInput">User type :</label>
+                        <input type="text" id="user-type" readonly>
                     </div>
                 </div>
             </div>
