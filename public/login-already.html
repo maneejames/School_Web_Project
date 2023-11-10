@@ -80,7 +80,7 @@
                                 await updateDoc(userDocRef, { stamps: updatedStamps });
                                 alert('Stamp value updated successfully.');
                             } else {
-                                console.error(`Stamp ${codeInput} not found in the user document.`);
+                                console.error(`Stamp ${stampNameToUpdate} not found in the user document.`);
                             }
                         } else {
                             // Handle the case when 'stamps' is not a map or does not exist
@@ -102,58 +102,6 @@
                 const codeInput = prompt('Enter a code:');
                 updateStampValue(codeInput);
             });
-
-            async function getStampValue() {
-                const user = auth.currentUser;
-
-                if (!user) {
-                    alert('User not logged in.');
-                    return;
-                }
-
-                const userDocRef = doc(firestore, 'users', user.uid);
-
-                try {
-                    const userDocSnapshot = await getDoc(userDocRef);
-
-                    if (userDocSnapshot.exists()) {
-                        const userDocData = userDocSnapshot.data();
-
-                        // Log the entire user document to the console for debugging
-                        console.log('User Document:', userDocData);
-
-                        // Check if 'stamps' exists in the document data and is a map
-                        if ('stamps' in userDocData && typeof userDocData.stamps === 'object') {
-                            // Check if the nested map at index 0 exists
-                            if ('0' in userDocData.stamps) {
-                                // Access the 'value' property of the nested map at index 0
-                                const valueAtIndex0 = userDocData.stamps['0']?.value;
-
-                                if (valueAtIndex0 !== undefined) {
-                                    alert(`Value at index 0: ${valueAtIndex0}`);
-                                } else {
-                                    console.error('Value at index 0 is undefined.');
-                                }
-                            } else {
-                                console.error('Nested map at index 0 not found.');
-                            }
-                        } else {
-                            // Handle the case when 'stamps' is not a map or does not exist
-                            console.error('"stamps" is not a map in the user document.');
-                            // You might need to adjust your data structure here
-                        }
-                    } else {
-                        console.error('User document not found.');
-                    }
-                } catch (error) {
-                    console.error('Error getting stamp value:', error);
-                    alert('Failed to get the stamp value.');
-                }
-            }
-
-// Example usage:
-// Call the function to get the value from user -> stamps map -> 0 map -> value
-getStampValue();
         
         </script>
 </head>
