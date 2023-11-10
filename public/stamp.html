@@ -242,7 +242,15 @@
                 }
             }
 
-            window.addEventListener('load', Loadstamp);
+            const unsubscribe = onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // User is signed in, call Loadstamp
+                    Loadstamp();
+                } else {
+                    // User is signed out
+                    console.log('User not logged in.');
+                }
+            });
 
         </script>
 </head>
