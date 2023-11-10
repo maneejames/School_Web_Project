@@ -69,11 +69,11 @@
                         // Check if 'stamps' exists in the document data and is a map
                         if ('stamps' in userDocData && typeof userDocData.stamps === 'object') {
                             // Check if the nested map exists for the given stamp
-                            if (codeInput in userDocData.stamps) {
+                            if (stampNameToUpdate in userDocData.stamps) {
                                 // Update the boolean value of the specific stamp in the nested map
                                 const updatedStamps = {
                                     ...userDocData.stamps,
-                                    [codeInput]: { ...userDocData.stamps[stampNameToUpdate], value: true }
+                                    [stampNameToUpdate]: { ...userDocData.stamps[stampNameToUpdate], value: true }
                                 };
 
                                 // Update the Firestore document with the modified 'stamps' map
