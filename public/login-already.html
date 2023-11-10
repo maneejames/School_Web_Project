@@ -42,6 +42,8 @@
 
                 const userDocRef = doc(firestore, 'users', user.uid);
                 const userDocSnapshot = await getDoc(userDocRef);
+                const userDocData = userDocSnapshot.data();
+                const stampsMap = userDocData.stamps;
                 
                 if (stampsMap && typeof stampsMap === 'object') {
                     // Access the value property of the nested map at key '0'
