@@ -65,24 +65,24 @@
 
                         if (userDocSnapshot.exists()) {
                             const userData = userDocSnapshot.data();
-                            prefixInput.value = userData._2prefix || '';
-                            fnameInput.value = userData._3firstname || '';
-                            prefixInput.value = userData._4lastname || '';
-                            fnameInput.value = userData.classroom || ''; 
+                            prefixInput.value = userData._2prefix;
+                            fnameInput.value = userData._3firstname;
+                            lnameInput.value = userData._4lastname;
+                            usertypeInput.value = 'Hello world'; 
                         } else {
                             // User document not found in Firestore
                             prefixInput.value = '';
                             fnameInput.value = '';
-                            prefixInput.value = '';
-                            fnameInput.value = '';
+                            lnameInput.value = '';
+                            usertypeInput.value = '';
                             console.log("no doc")
                         }
                     } else {
                         // User is not logged in, clear the input fields
                         prefixInput.value = '';
                         fnameInput.value = '';
-                        prefixInput.value = '';
-                        fnameInput.value = '';
+                        lnameInput.value = '';
+                        usertypeInput.value = '';
                         console.log("no user")
                     }
                 });
