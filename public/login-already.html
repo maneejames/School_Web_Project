@@ -68,12 +68,20 @@
 
                         // Check if 'stamps' exists in the document data and is a map
                         if ('stamps' in userDocData && typeof userDocData.stamps === 'object') {
-                            // Find the specific stamp by 'name' and update its 'value'
-                            const updatedStamps = { ...userDocData.stamps, [stampNameToUpdate]: true };
+                            // Check if the nested map exists for the given stamp
+                            if (codeInput in userDocData.stamps) {
+                                // Update the boolean value of the specific stamp in the nested map
+                                const updatedStamps = {
+                                    ...userDocData.stamps,
+                                    [codeInput]: { ...userDocData.stamps[codeInput], value: true }
+                                };
 
-                            // Update the Firestore document with the modified 'stamps' map
-                            await updateDoc(userDocRef, { stamps: updatedStamps });
-                            alert('Stamp value updated successfully.');
+                                // Update the Firestore document with the modified 'stamps' map
+                                await updateDoc(userDocRef, { stamps: updatedStamps });
+                                alert('Stamp value updated successfully.');
+                            } else {
+                                console.error(`Stamp ${codeInput} not found in the user document.`);
+                            }
                         } else {
                             // Handle the case when 'stamps' is not a map or does not exist
                             console.error('"stamps" is not a map in the user document.');
