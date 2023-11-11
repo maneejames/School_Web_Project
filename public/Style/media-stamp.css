@@ -70,6 +70,9 @@
         width: 175px;
         height: 175px;
     }
+    .stamp div img {
+        width: 325px;
+    }
 }
 
 @media screen and (max-width : 655px) {
@@ -80,6 +83,9 @@
     .card div {
         width: 125px;
         height: 125px;
+    }
+    .stamp div img {
+        width: 300px;
     }
 }
 
@@ -97,6 +103,9 @@
         width: 100px;
         height: 100px;
     }
+    .stamp div img {
+        width: 275px;
+    }
 }
 
 @media screen and (max-width : 396px) {
@@ -109,6 +118,9 @@
     .card div {
         width: 75px;
         height: 75px;
+    }
+    .stamp div img {
+        width: 250px;
     }
     .enter-code button {
         width: 80%;
