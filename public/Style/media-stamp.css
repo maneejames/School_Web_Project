@@ -44,14 +44,6 @@
         font-size: 13px;
         padding: 12px 22px;
     }
-    .stamp {
-        width: 700px;
-        height: 425px;
-    }
-    .stamp div {
-        width: 150px;
-        height: 150px;
-    }
 }
 
 
@@ -74,6 +66,10 @@
     .dropdown-menu {
         display: block;
     }
+    .card div {
+        width: 175px;
+        height: 175px;
+    }
 }
 
 @media screen and (max-width : 655px) {
@@ -81,22 +77,23 @@
         left: 2rem;
         width: unset;
     }
-    .stamp {
-        width: 600px;
-        height: 400px;
-    }
-    .stamp div {
+    .card div {
         width: 125px;
         height: 125px;
     }
 }
 
-@media screen and (max-width : 490px) {
-    .stamp {
-        width: 500px;
-        height: 375px;
+@media screen and (max-width : 520px) {
+    .container {
+        height: 400px;
     }
-    .stamp div {
+    .enter-code button {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width : 480px) {
+    .card div {
         width: 100px;
         height: 100px;
     }
@@ -109,8 +106,11 @@
     .navbar header h1 {
         font-size: 15px;
     }
-    .stamp div {
+    .card div {
         width: 75px;
         height: 75px;
+    }
+    .enter-code button {
+        width: 80%;
     }
 }

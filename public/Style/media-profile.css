@@ -81,10 +81,6 @@
     .container {
         flex-direction: column;
     }
-    .img-user {
-        margin-right: 0;
-        margin-bottom: 50px;
-    }
     .user-info {
         margin-left: 0;
         margin-top: 50px;
