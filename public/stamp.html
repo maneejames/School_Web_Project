@@ -149,49 +149,6 @@
 
             /*--================================================== Update pic ==================================================--*/
 
-            // async function Loadstamp() {
-            //     const user = auth.currentUser;
-
-            //     let img1 = document.getElementById('Stamp1');
-            //     let img2 = document.getElementById('Stamp2');
-            //     let img3 = document.getElementById('Stamp3');
-
-            //     const userDocRef = doc(firestore, 'users', user.uid);
-            //     const userDocSnapshot = await getDoc(userDocRef);
-            //     const userDocData = userDocSnapshot.data();
-            //     const stampsMap = userDocData.stamps;
-
-            //     if (stampsMap && typeof stampsMap === 'object') {
-            //         const valueAtIndex0 = stampsMap['0']?.value;
-            //         const valueAtIndex1 = stampsMap['1']?.value;
-            //         const valueAtIndex2 = stampsMap['2']?.value;
-
-            //         if (valueAtIndex0 == true) {
-            //             img1.setAttribute("src", "/images/stamp.jpg");
-            //         } else {
-            //             console.error('Value at index 0 is undefined.');
-            //         }
-
-            //         if (valueAtIndex1 == true) {
-            //             img2.setAttribute("src", "/images/stamp.jpg");
-            //         } else {
-            //             console.error('Value at index 1 is undefined.');
-            //         }
-
-            //         if (valueAtIndex2 == true) {
-            //             img3.setAttribute("src", "/images/stamp.jpg");
-            //         } else {
-            //             console.error('Value at index 2 is undefined.');
-            //         }
-
-            //     } else {
-            //         console.error('"stamps" is not a map in the user document.');
-            //         // You might need to adjust your data structure here
-            //     }
-            // }
-
-            // window.addEventListener('load', Loadstamp);
-
             async function Loadstamp() {
                 const user = auth.currentUser;
 
@@ -314,7 +271,6 @@
             </div>
         </div>
     </div>
-
     <button id="stamp-button">Set Stamp to True</button>
     <!--================================================== STAMP ==================================================-->
 </body>
