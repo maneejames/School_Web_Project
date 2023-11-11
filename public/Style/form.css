@@ -72,7 +72,7 @@ header a i {
     font-weight: bold;
 }
 
-.prefix select , .fname input , .lname input , .email input , .password input , .education select , .school input , .province input {
+.prefix select , .fname input , .lname input , .email input , .password input , .user-type select , .education select , .school input , .province input {
     margin: 15px 0;
     padding: 5px;
     width: 100%;
@@ -101,11 +101,11 @@ header a i {
     width: 20px;
 }
 
-.student {
+.student-option {
     display: none;
 }
 
-.teacher {
+.teacher-option {
     display: none;
 }
 

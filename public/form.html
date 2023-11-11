@@ -118,7 +118,7 @@
                         <div class="prefix">
                             <label for="prefix">Prefix :</label>
                             <select name="prefix" id="prefix" required>
-                                <option disabled selected value="-"></option>
+                                <option disabled selected value="-">-</option>
                                 <option value="master">Master</option>
                                 <option value="miss">Miss</option>
                                 <option value="Mr.">Mr.</option>
@@ -144,44 +144,37 @@
                     </div>
                     <div class="user-type">
                         <label for="user-type">User type :</label>
-                        <div class="choice">
-                            <input type="radio" id="student" name="choice">
-                            <label for="student">Student</label>
-                            <input type="radio" id="teacher" name="choice">
-                            <label for="teacher">Teacher</label>
-                            <input type="radio" id="parent" name="choice">
-                            <label for="parent">Parent</label>
-                            <input type="radio" id="general-public" name="choice">
-                            <label for="general-public">General Public</label>
-                        </div>
+                        <select name="user-type" id="user-type" onchange="showOption()">
+                            <option disabled selected value="-">-</option>
+                            <option value="student">Student</option>
+                            <option value="teacher">Teacher</option>
+                            <option value="parent">Parent</option>
+                            <option value="general-public">General Public</option>
+                        </select>
                         <script>
-                            const rdStudent = document.getElementById("student");
-                            const rdTeacher = document.getElementById("teacher");
-                            const rdParent = document.getElementById("parent");
-                            const rdGeneralPublic = document.getElementById("general-public");
-                            
-                            rdStudent.onclick = function () {
-                                document.querySelector(".student").style.display="block";
-                                document.querySelector(".teacher").style.display="none";
-                            }
+                            function showOption() {
+                                let select = document.getElementById("user-type");
+                                let selectOption = select.value;
 
-                            rdTeacher.onclick = function () {
-                                document.querySelector(".student").style.display="none";
-                                document.querySelector(".teacher").style.display="block";
-                            }
+                                let studentOption = document.querySelector(".student-option");
+                                let teacherOption = document.querySelector(".teacher-option");
 
-                            rdParent.onclick = function () {
-                                document.querySelector(".student").style.display="none";
-                                document.querySelector(".teacher").style.display="none";
-                            }
+                                console.log(selectOption);
 
-                            rdGeneralPublic.onclick = function () {
-                                document.querySelector(".student").style.display="none";
-                                document.querySelector(".teacher").style.display="none";
+                                if (selectOption === "student") {
+                                    studentOption.style.display = "block";
+                                    teacherOption.style.display = "none"
+                                } else if (selectOption === "teacher") {
+                                    studentOption.style.display = "none";
+                                    teacherOption.style.display = "block";
+                                } else if (selectOption === "parent" || selectOption === "general-public") {
+                                    studentOption.style.display = "none";
+                                    teacherOption.style.display = "none";
+                                }
                             }
                         </script>
                     </div>
-                    <div class="student">
+                    <div class="student-option">
                         <div class="education">
                             <label for="education">Education level :</label>
                             <select name="education" id="education" required>
@@ -201,7 +194,7 @@
                             <input type="text" id="province">
                         </div>
                     </div>
-                    <div class="teacher">
+                    <div class="teacher-option">
                         <div class="school">
                             <label for="school">School name :</label>
                             <input type="text" id="school">
