@@ -156,7 +156,7 @@ body {
 
 /*========================================================== STAMP =========================================================*/
 
-.container {
+.stamp {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -164,19 +164,32 @@ body {
     margin-top: 50px;
 }
 
-.stamp {
-    display: flex;
+.container {
     background-color: #6F8B71;
     height: 450px;
     width: 800px;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-content: center;
     padding: 20px;
     border-radius: 20px;
 }
 
-.stamp div {
+.topic {
+    margin-bottom: 30px;
+}
+
+.topic h1 {
+    text-align: center;
+    font-size: 60px;
+    color: white;
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.card div {
     width: 200px;
     height: 200px;
     background-color: #D7DDD7;
@@ -188,5 +201,26 @@ body {
 
 .stamp div img {
     width: 350px;
+}
+
+.enter-code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.enter-code button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 20px;
+    font-weight: bold;
+    width: 40%;
+    height: 50px;
 }
 /*========================================================== STAMP =========================================================*/
